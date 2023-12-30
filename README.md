@@ -1,1 +1,2 @@
-# VantaAlbum2024
+_config.yml
+title: Vanta Album 2024
