@@ -320,6 +320,12 @@
   </div>
   <audio id="audio" controls style="width: 100%"></audio>
   <script>
+   <div id="audioControls">
+    </div>
+    <audio id="audio" controls style="width: 100%">
+      <source src="path/to/your-audio-file.wav" type="audio/wav">
+    </audio>
+  <script>
     function togglePlayPause() {
       var audio = document.getElementById("audio");
       if (audio.paused) {
@@ -327,17 +333,8 @@
       } else {
         audio.pause();
       }
-      var youtubeVideoId = 'XtT0RiON5Q4';
-      var API_KEY = 'AIzaSyBzZVE8FiCbq4CdyXon66Z9QpNcEa5wF5M'; 
-    
-      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${youtubeVideoId}&key=${API_KEY}`)
-        .then(response => response.json())
-        .then(data => {
-          var audioURL = data.items[0].snippet.contentDetails.audio.streamUrl;
-          audio.src = audioURL; 
-        })
-        .catch(error => console.error('Error fetching YouTube video details:', error));
     }
+    document.getElementById("audio").src = "path/to/your-audio-file.wav";
   </script>
     <script>
       function playAudio() {
