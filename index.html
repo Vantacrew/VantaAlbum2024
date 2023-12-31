@@ -315,8 +315,31 @@
     }
   </style>
     <!-- Audio Model -->
-    <audio id="audio" src="your-audio-file.mp3"></audio>
-
+<!--Play/Pause Bar-->
+  <div id="audioControls">
+  </div>
+  <audio id="audio" controls style="width: 100%"></audio>
+    <script>
+      function togglePlayPause() {
+        var audio = document.getElementById("audio");
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      }
+      var youtubeVideoId = 'v=Oaa3Wdm6AOA'; 
+      var apiKey = 'AIzaSyBzZVE8FiCbq4CdyXon66Z9QpNcEa5wF5M'; 
+    
+      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${youtubeVideoId}&key=${apiKey}`)
+        .then(response => response.json())
+        .then(data => {
+          var audioURL = data.items[0].snippet.contentDetails.audio.streamUrl;
+          var audio = document.getElementById("audio");
+          audio.src = audioURL;
+        })
+        .catch(error => console.error('Error fetching YouTube video details:', error));
+    </script>
     <script>
       function playAudio() {
         var audio = document.getElementById("audio");
