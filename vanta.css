@@ -49,24 +49,4 @@ img {
 .mySlides {
     text-align: center;
 }
- #audioControls {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      z-index: 3; /* Ensure the audio player is above other elements */
-    }
 
-    #audioPlayerText {
-      font-size: 16px;
-      font-weight: bold;
-      color: black; 
-    }
-
-    #audio {
-      width: 100%;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-    }
