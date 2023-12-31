@@ -314,32 +314,31 @@
       margin: 0.5px;
     }
   </style>
-    <!-- Audio Model -->
-<!--Play/Pause Bar-->
+   <!-- Audio Model -->
+  <!--Play/Pause Bar-->
   <div id="audioControls">
   </div>
   <audio id="audio" controls style="width: 100%"></audio>
-    <script>
-      function togglePlayPause() {
-        var audio = document.getElementById("audio");
-        if (audio.paused) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
+  <script>
+    function togglePlayPause() {
+      var audio = document.getElementById("audio");
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
       }
-      var youtubeVideoId = 'v=Oaa3Wdm6AOA'; 
-      var apiKey = 'AIzaSyBzZVE8FiCbq4CdyXon66Z9QpNcEa5wF5M'; 
+      var youtubeVideoId = 'XtT0RiON5Q4';
+      var API_KEY = 'AIzaSyBzZVE8FiCbq4CdyXon66Z9QpNcEa5wF5M'; 
     
-      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${youtubeVideoId}&key=${apiKey}`)
+      fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${youtubeVideoId}&key=${API_KEY}`)
         .then(response => response.json())
         .then(data => {
           var audioURL = data.items[0].snippet.contentDetails.audio.streamUrl;
-          var audio = document.getElementById("audio");
-          audio.src = audioURL;
+          audio.src = audioURL; 
         })
         .catch(error => console.error('Error fetching YouTube video details:', error));
-    </script>
+    }
+  </script>
     <script>
       function playAudio() {
         var audio = document.getElementById("audio");
