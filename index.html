@@ -66,7 +66,7 @@
     .full-screen-modal-content {
       max-width: 100%;
       max-height: 100%;
-    }
+    } 
   </style>
 </head>
 <body>
@@ -287,6 +287,21 @@
     <div class="timeline-date">Date 1</div>
     <div class="timeline-date">Date 2</div>    
   </div>
+  <script>
+    document.getElementById("audio").src = "path/to/your-default-audio-file.wav";
+    document.getElementById("audioPlayerText").innerText = "Default Audio Player";
+  </script>
+</head>
+<body>
+  <!--  audio player code -->
+  <div id="audioControls">
+    <p id="audioPlayerText">Audio Player</p>
+    <audio id="audio" controls style="width: 100%">
+      <!-- default value for src -->
+      <source src="#" type="audio/wav">
+    </audio>
+  </div>
+</body>
   <style>
     .timeline-container {
       display: flex;
@@ -314,35 +329,6 @@
       margin: 0.5px;
     }
   </style>
-   <!-- Audio Model -->
-  <!--Play/Pause Bar-->
-  <div id="audioControls">
-  </div>
-  <audio id="audio" controls style="width: 100%"></audio>
-  <script>
-   <div id="audioControls">
-    </div>
-    <audio id="audio" controls style="width: 100%">
-      <source src="path/to/your-audio-file.wav" type="audio/wav">
-    </audio>
-  <script>
-    function togglePlayPause() {
-      var audio = document.getElementById("audio");
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    }
-    document.getElementById("audio").src = "path/to/your-audio-file.wav";
-  </script>
-    <script>
-      function playAudio() {
-        var audio = document.getElementById("audio");
-        audio.play();
-        audio.volume = 0.3;
-      }
-    </script>
 <script>
   var isOpen = false;
 
@@ -509,5 +495,5 @@ show3Slides(slide3Index);
   </div>
 </body>
 </html>
-<img src="VantaBD_Coverart_smile(eyes).png" class="comic-style1">>
+<img src="VantaBD_Coverart_smile(eyes).png" class="comic-style1">
     
