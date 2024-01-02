@@ -54,8 +54,16 @@ img {
   top: 10px; 
   right: 10px;
   z-index: 5;
- /* resets the button styling */
-    button {
-      all: unset;
-      cursor: pointer;
-    }
+#button-save {
+	width: 47px;		/* exact button width */
+	height: 23px;		/* exact button height */
+	/* button background: don't repeat the background, let it scroll with 
+	   the page, and find the proper offset for the button in the file */
+	background: url('Frame _2to3.psd') no-repeat scroll -6px -5px;
+}
+ 
+#button-cancel {
+	width: 60px;
+	height: 23px;
+	background: url('Frame _2to3.psd') no-repeat scroll -6px -32px;
+}
