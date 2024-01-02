@@ -54,3 +54,8 @@ img {
   top: 10px; 
   right: 10px;
   z-index: 5;
+ /* resets the button styling */
+    button {
+      all: unset;
+      cursor: pointer;
+    }
