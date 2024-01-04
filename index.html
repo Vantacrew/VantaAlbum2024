@@ -8,9 +8,41 @@
   <link rel="stylesheet" href="vanta.css">
   <style>
     /* Styles for modal container, modal content, and close button */
-  .modal-container {
-  overflow-y: auto;
-} 
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .main {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      margin-left: 20px; /* Adjust the margin as needed */
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-group button {
+      max-width: 140px;
+      max-height: 900px;
+      border: 2px solid #6b47c6;
+      width: 100%;
+      margin-top: 10px;
+      cursor: url(cursor.png), auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-group button img {
+      max-width: 80%;
+      height: auto;
+    }
+
     .modal-container {
       display: flex;
       align-items: center;
@@ -21,11 +53,12 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
-      z-index: 2; 
+      z-index: 2;
       visibility: hidden;
     }
+
     .modal-content {
-      background: rgba(255, 255, 255, 0.8);      
+      background: rgba(255, 255, 255, 0.8);
       padding: 20px;
       border-radius: 10px;
       max-width: 80%;
@@ -40,44 +73,16 @@
       cursor: pointer;
     }
 
-    /* Styles for main container */
-    .main {
-      display: grid;
-      grid-template-columns: 0.5fr 1fr; 
-      gap: 10px; 
+    .slideshow-containerB,
+    .slideshow-containerD {
       position: relative;
-      z-index: 1;
+      max-width: 100%;
+      margin: auto;
     }
 
-    /* Add your other styles here */
-    .btn-group button {
-      max-width: 140px;
-      max-height: 900px;
-      border: 2px solid #6b47c6;
-      width: 100%;
-      margin: 0 auto;
-      margin-top: 10px;
-      z-index: 1;
-      cursor: url(cursor.png), auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .my2Slide {
+      display: none;
     }
-    .btn-group button img {
-      max-width: 80%;
-      height: auto;
-    }
-
-    .full-screen-modal-container {
-      width: 80%;
-      height: 80%;
-    }
-
-    .full-screen-modal-content {
-      max-width: 80%;
-      max-height: 80%;
-    } 
-  
   </style>
 </head>
 <body>
@@ -86,20 +91,12 @@
     <source src="testaudio.mp3" type="audio/mpeg">
     </audio>
     </div>
-  <div class="main">
-    <div class="btn-group">
-      <button class="clickable-button" id="introBtn" onclick="toggleModule('myModalIntro')">Intro</button>
-      <img src="image1.png" alt="Intro Image">
-    </button>
-      <button class="clickable-button" id="comicsBtn" oneclick ="toggleModule('ComicsModal')">Comics</button>
-      <img src="image2.png" alt="Intro Image">
-  </button>
-      <button class="clickable-button" id="albumBtn" onclick="toggleModule('AlbumsModal')">Albums</button>
-      <img src="image3.png" alt="Intro Image">
-    </style> 
-  </button>
-</div>
-</div>
+    <div class="main">
+      <div class="btn-group">
+        <img src="image.png" alt="Intro Model" onclick="toggleModule('myModalIntro')">
+        <img src="image.png" alt="Comic Model" onclick="toggleModule('ComicsModal')">
+        <img src="image.png" alt="Album Model" onclick="toggleModule('AlbumsModal')">
+      </div>
 
     <!-- Overlay for Intro -->
     <div id="myModalIntro" class="modal">
@@ -115,10 +112,9 @@
 
     <!-- Comic Modal -->
     <div id="ComicsModal" class="modal">
-      <div class="modal-container"></div>
+      <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
       <div class="modal-content">
-        <div class="modal-header">
-          <span class="close" onclick="closeModule('ComicsModal')">×</span>
+        <span class="close" onclick="toggleModule('ComicsModal')">×</span>
           <h2>Comics</h2>
         </div>
         <div class="slideshow-containerB">
@@ -190,15 +186,15 @@
             <span class="dot" onclick="current2Slide(29)"></span> 
             <span class="dot" onclick="current2Slide(30)"></span> 
           </div>      
-          <div style="text-align:center"></div><a class="prev2" onclick="plus2Slides(-1)">❮</a> <a class="next2" onclick="plus2Slides(1)">❯</a>
+          <div style="text-align:center"></div>
+          <a class="prev2" onclick="plus2Slides(-1)">❮</a> <a class="next2" onclick="plus2Slides(1)">❯</a>
         </div>
         </div>
     <!-- Album Modal -->
     <div id="AlbumsModal" class="modal">
-      <div class="modal-container"></div>
+      <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
       <div class="modal-content">
-        <div class="modal-header">
-          <span class="close" onclick="closeModule('AlbumsModal')">×</span>
+        <span class="close" onclick="toggleModule('AlbumsModal')">×</span>
           <h2>Album</h2>
         </div>
         <div class="slideshow-containerD">
@@ -272,7 +268,7 @@
         <div style="text-align:center">
           <a class="prev2" onclick="plus3Slides(-1)">❮</a>
           <a class="next2" onclick="plus3Slides(1)">❯</a>
-        </div>    </div>
+        </div>
 
     <!-- other modal sections here -->
 <style>
@@ -344,16 +340,23 @@
 <script>
 //Audio player
 function play() {
-    var audio = document.getElementById("audio");
-    audio.play();
-    audio.volume=0.3
-}
-  var isOpen = false;
-  function toggleModule(moduleId) {
-    var modal = document.getElementById(moduleId);
-    modal.style.visibility = isOpen ? 'hidden' : 'visible';
-    isOpen = !isOpen;
-  }
+      var audio = document.getElementById("audio");
+      audio.play();
+      audio.volume = 0.3;
+    }
+
+    function toggleModule(moduleId) {
+      const modal = document.getElementById(moduleId);
+      const body = document.body;
+
+      if (modal.style.visibility === 'visible') {
+        modal.style.visibility = 'hidden';
+        body.style.overflow = 'auto'; 
+      } else {
+        modal.style.visibility = 'visible';
+        body.style.overflow = 'hidden'; 
+      }
+    }
       // Java Code
        // Comic Model
     var model2Comic = document.getElementById("Comics");
