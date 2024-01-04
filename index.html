@@ -8,73 +8,76 @@
   <link rel="stylesheet" href="vanta.css">
   <style>
     /* Styles for modal container, modal content, and close button */
-    body {
-        overflow: hidden;
-      }
+  .modal-container {
+  overflow-y: auto;
+} 
+    .modal-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2; 
+      visibility: hidden;
+    }
+    .modal-content {
+      background: rgba(255, 255, 255, 0.8);      
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 80%;
+      max-height: 80%;
+      overflow: auto;
+    }
 
-      .modal-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 2;
-        visibility: hidden;
-      }
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
 
-      .modal-content {
-        background: rgba(255, 255, 255, 0.8);
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 80%;
-        max-height: 80%;
-        overflow: auto;
-        position: relative;
-      }
+    /* Styles for main container */
+    .main {
+      display: grid;
+      grid-template-columns: 0.5fr 1fr; 
+      gap: 10px; 
+      position: relative;
+      z-index: 1;
+    }
 
-      .closeBtn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        cursor: pointer;
-        z-index: 3;
-      }
+    /* Add your other styles here */
+    .btn-group button {
+      max-width: 140px;
+      max-height: 900px;
+      border: 2px solid #6b47c6;
+      width: 100%;
+      margin: 0 auto;
+      margin-top: 10px;
+      z-index: 1;
+      cursor: url(cursor.png), auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .btn-group button img {
+      max-width: 80%;
+      height: auto;
+    }
 
-      .comic-style1 {
-        cursor: pointer;
-      }
+    .full-screen-modal-container {
+      width: 80%;
+      height: 80%;
+    }
 
-      .comic-style1:hover {
-        filter: brightness(90%);
-      }
-
-      .btn-group {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .btn-group button {
-        max-width: 140px;
-        max-height: 900px;
-        width: 100%;
-        margin: 0 auto;
-        margin-top: 10px;
-        z-index: 2;
-        cursor: url(cursor.png), auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: relative;
-      }
-      .btn-group button img {
-        max-width: 80%;
-        height: auto;
-      }
+    .full-screen-modal-content {
+      max-width: 80%;
+      max-height: 80%;
+    } 
+  
   </style>
 </head>
 <body>
@@ -83,18 +86,18 @@
     <source src="testaudio.mp3" type="audio/mpeg">
     </audio>
     </div>
-    <div class="main">
-      <div class="btn-group">
-        <!-- Image 1 Button -->
-        <img src="image.png" alt="Intro Image" class="comic-style2" onclick="openModuleFirstSet('myModalIntro')">
-  
-        <!-- Image 2 Button -->
-        <img src="image.png" alt="Comic Image" class="comic-style2" onclick="openModuleSecondSet('ComicsModal')">
-  
-        <!-- Image 3 Button -->
-        <img src="image.png" alt="Album Image" class="comic-style2" onclick="openModuleSecondSet('AlbumsModal')">
-      </div>
-    </div>
+  <div class="main">
+    <div class="btn-group">
+      <button class="clickable-button" id="introBtn" onclick="toggleModule('myModalIntro')">Intro</button>
+      <img src="image1.png" alt="Intro Image">
+    </button>
+      <button class="clickable-button" id="comicsBtn" oneclick ="toggleModule('ComicsModal')">Comics</button>
+      <img src="image2.png" alt="Intro Image">
+  </button>
+      <button class="clickable-button" id="albumBtn" onclick="toggleModule('AlbumsModal')">Albums</button>
+      <img src="image3.png" alt="Intro Image">
+    </style> 
+  </button>
 </div>
 </div>
 
@@ -269,7 +272,7 @@
         <div style="text-align:center">
           <a class="prev2" onclick="plus3Slides(-1)">❮</a>
           <a class="next2" onclick="plus3Slides(1)">❯</a>
-        </div>  
+        </div>    </div>
 
     <!-- other modal sections here -->
 <style>
@@ -505,6 +508,12 @@ show3Slides(slide3Index);
         });
       }
     });
+
+    function toggleModule(moduleId) {
+      const modal = document.getElementById(moduleId);
+      modal.style.visibility = modal.style.visibility === 'visible' ? 'hidden' : 'visible';
+    }
+
     </script>
   </div>
 </body>
