@@ -9,6 +9,9 @@
   <style>
     /* Styles for modal container, modal content, and close button */
   .modal-container {
+  overflow-y: auto;
+} 
+    .modal-container {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -256,7 +259,11 @@
         </div>    </div>
 
     <!-- other modal sections here -->
-
+<style>
+   body {
+  overflow: hidden;
+}
+</style>
     <!-- Clippers Page -->
     <div class="slideshow-container">
       <style>
@@ -363,6 +370,20 @@ function closeAlbums() {
   model3Album.style.display = "none";
 }
   </script>
+      <script>
+  function toggleModule(moduleId) {
+  const modal = document.getElementById(moduleId);
+  const body = document.body;
+
+  if (modal.style.visibility === 'visible') {
+    modal.style.visibility = 'hidden';
+    body.style.overflow = 'auto'; 
+  } else {
+    modal.style.visibility = 'visible';
+    body.style.overflow = 'hidden'; 
+}
+  }
+</script>
 <script>
   // Video Slides
   let currentSlides = 0;
