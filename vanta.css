@@ -1,3 +1,6 @@
+body {
+  overflow: hidden;
+}
 /* Button Model Code */
 .btn-group button {
     margin: 5px;
