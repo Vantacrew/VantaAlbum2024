@@ -1,6 +1,10 @@
 body {
   overflow: hidden;
 }
+
+.modal-container {
+  overflow-y: auto;
+}
 /* Button Model Code */
 .btn-group button {
     margin: 5px;
