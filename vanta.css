@@ -72,19 +72,16 @@ img {
 }
 element.style {
 }
-#overlay {
-   width: 100vw;
-   height: 100vh;
-   top: 0;
-   left: 0;
-   overflow: hidden;
-   position: absolute;
-  background-image: url("VantaBD_Coverart_smile (1).png");
-   background-repeat: no-repeat;
-   background-size: cover;
-   background-position: center;
-   z-index: 2;
-}
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, 0.85);
+    background: url("VantaBD_Coverart_smile (1).png") repeat scroll transparent\9;
+    z-index:9999;
+    color:white;
 * {
     box-sizing: border-box;
 }
