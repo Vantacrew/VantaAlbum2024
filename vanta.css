@@ -45,8 +45,7 @@ element.style {
     transform: translate(-50%,-50%);
     z-index: -5;
 }
-element.style {
-}
+]
 .comic-style2 {
     width: 100%;
     position: fixed;
@@ -94,9 +93,6 @@ element.style {
    background-size: cover;
    background-position: center;
    z-index: 2;
-}
-* {
-    box-sizing: border-box;
 }
 element.style {
    display: block;
