@@ -100,8 +100,12 @@
          </div>
       </div>
       <script>
+         function off() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+         }
           let openModalId = null;
-         
+          
          function openModule(moduleId) {
          const modalContent = document.getElementById('modalContent');
          const modalContainer = document.getElementById('modalContainer');
