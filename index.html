@@ -215,8 +215,8 @@
 
 <body>
      <!-- Splash Screen -->
-     <div class="splash" id="splash" onclick="hideSplash()">
-        <img src="VantaBD_Coverart_smile (1).png" alt="Splash Image" class="comic-style1">
+      <div class="splash" id="splash" onclick="hideSplash()">
+        <img src="VantaBD_Coverart_smile_final.png" alt="Splash Image" class="comic-style1">
 </div>
     <div class="music-player">
         <audio id="audio" controls loop>
@@ -243,10 +243,7 @@
     <script>
      function hideSplash() {
             const splash = document.getElementById('splash');
-            const mainContent = document.getElementById('mainContent');
-            
             splash.style.display = 'none';
-            mainContent.style.display = 'block';
         }
         let openModalId = null;
         let isTimelineVisible = false;
