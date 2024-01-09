@@ -8,7 +8,7 @@
     <meta name="description" content="Celebrating Vantacrow's spawn!">
     <link rel="stylesheet" href="vanta.css">
     <style>
-         body {
+          body {
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -80,16 +80,19 @@
             color: #000;
         }
 
-       #video-container {
-    width: 80%;
-    height: 90%;
-    max-width: 800px;
-    max-height: 600px;
-    margin: auto;
-    position: relative;
- .video-slide {
-    height: 80%;
-}
+        #video-container {
+            width: 80%;
+            height: 90%;
+            max-width: 800px;
+            max-height: 600px;
+            margin: auto;
+            position: relative;
+        }
+
+        .video-slide {
+            height: 80%;
+        }
+
         .myVideoSlide {
             display: none;
         }
@@ -99,22 +102,25 @@
         }
 
         .timeline {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    position: absolute;
-    top: 80%; 
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 1;
-    pointer-events: none;
-    transition: opacity 0.5s ease-in-out;
-    z-index: 2; 
-        .timeline.active {
-            opacity: 1; 
-            pointer-events: auto; 
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 1;
+            pointer-events: none;
+            transition: opacity 0.5s ease-in-out;
+            z-index: 2;
         }
+
+        .timeline.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         .timeline-item {
             font-size: 14px;
             padding: 5px;
@@ -124,6 +130,7 @@
             margin: 5px;
             opacity: 0.7;
             cursor: pointer;
+            animation: fadeOut 0.5s forwards; /* Add fadeOut animation */
         }
 
         .timeline-item.active {
@@ -132,22 +139,20 @@
         }
 
         .timeline-progress {
-    height: 5px;
-    background-color: #6b47c6;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    transition: width 100000s ease-in-out;
-}
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            50% {
+            height: 5px;
+            background-color: #6b47c6;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            transition: width 100000s ease-in-out;
+        }
+
+        @keyframes fadeOut {
+            from {
                 opacity: 1;
             }
-            100% {
+            to {
                 opacity: 0;
             }
         }
@@ -170,17 +175,18 @@
             background-color: #6b47c6;
             color: #fff;
         }
+
         @keyframes fadeIn {
-        0% {
-            opacity: 0;
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
-        50% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
     </style>
 </head>
 
@@ -208,25 +214,31 @@
     </div>
 
     <script>
-      let openModalId = null;
+        let openModalId = null;
+        let isTimelineVisible = false;
 
-function closeAllModules() {
-    const modalContainer = document.getElementById('modalContainer');
-    const body = document.body;
-    const modalContent = document.getElementById('modalContent');
+        function closeAllModules() {
+            const modalContainer = document.getElementById('modalContainer');
+            const body = document.body;
+            const modalContent = document.getElementById('modalContent');
+            const timeline = document.querySelector('.timeline');
 
-    modalContainer.style.visibility = 'hidden';
-    modalContainer.style.opacity = '0';
-    body.style.overflow = 'auto';
-    modalContent.classList.remove('modal-content-scrollable');
-    modalContent.innerHTML = '';
-    openModalId = null;
-}
+            modalContainer.style.visibility = 'hidden';
+            modalContainer.style.opacity = '0';
+            body.style.overflow = 'auto';
+            modalContent.classList.remove('modal-content-scrollable');
+            modalContent.innerHTML = '';
+            openModalId = null;
 
-function openModule(moduleId) {
+            timeline.classList.remove('active');
+            isTimelineVisible = false;
+        }
+
+        function openModule(moduleId) {
             const modalContent = document.getElementById('modalContent');
             const modalContainer = document.getElementById('modalContainer');
             const body = document.body;
+            const timeline = document.querySelector('.timeline');
 
             if (openModalId === null) {
                 modalContent.innerHTML = getModalContent(moduleId);
@@ -236,62 +248,63 @@ function openModule(moduleId) {
                 modalContainer.style.opacity = '1';
                 body.style.overflow = 'hidden';
                 openModalId = moduleId;
-if (moduleId === 'video-container') {
-    showVideoSlide(1);
-                    const timeline = document.querySelector('.timeline');
+                if (moduleId === 'video-container') {
+                    showVideoSlide(1);
                     timeline.classList.add('active');
+                    isTimelineVisible = true;
                 }
             } else if (openModalId === moduleId) {
                 closeAllModules();
             }
         }
 
-let current2Slide = 1;
+        let current2Slide = 1;
 
-function plus2Slides(n) {
-    show2Slide(current2Slide += n);
-}
+        function plus2Slides(n) {
+            show2Slide(current2Slide += n);
+        }
 
-function show2Slide(slideIndex) {
-    const slides = document.querySelectorAll('.my2Slide');
+        function show2Slide(slideIndex) {
+            const slides = document.querySelectorAll('.my2Slide');
 
-    if (slideIndex > slides.length) {
-        current2Slide = 1;
-    } else if (slideIndex < 1) {
-        current2Slide = slides.length;
-    }
+            if (slideIndex > slides.length) {
+                current2Slide = 1;
+            } else if (slideIndex < 1) {
+                current2Slide = slides.length;
+            }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-    }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
 
-    slides[current2Slide - 1].style.display = 'block';
-}
+            slides[current2Slide - 1].style.display = 'block';
+        }
 
-let current3Slide = 1;
+        let current3Slide = 1;
 
-function plus3Slides(n) {
-    show3Slide(current3Slide += n);
-}
+        function plus3Slides(n) {
+            show3Slide(current3Slide += n);
+        }
 
-function show3Slide(slideIndex) {
-    const slides = document.querySelectorAll('.my3Slide');
+        function show3Slide(slideIndex) {
+            const slides = document.querySelectorAll('.my3Slide');
 
-    if (slideIndex > slides.length) {
-        current3Slide = 1;
-    } else if (slideIndex < 1) {
-        current3Slide = slides.length;
-    }
+            if (slideIndex > slides.length) {
+                current3Slide = 1;
+            } else if (slideIndex < 1) {
+                current3Slide = slides.length;
+            }
 
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-    }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
 
-    slides[current3Slide - 1].style.display = 'block';
-}
+            slides[current3Slide - 1].style.display = 'block';
+        }
 
-let currentVideoSlide = 1;
-function showVideoSlide(slideIndex) {
+        let currentVideoSlide = 1;
+
+        function showVideoSlide(slideIndex) {
             const videoSlides = document.querySelectorAll('.myVideoSlide');
             const timelineItems = document.querySelectorAll('.timeline-item');
             const timelineProgress = document.querySelector('.timeline-progress');
@@ -302,20 +315,32 @@ function showVideoSlide(slideIndex) {
 
             for (let i = 0; i < timelineItems.length; i++) {
                 timelineItems[i].classList.remove('active');
+                timelineItems[i].style.animation = 'none';
             }
-
             videoSlides[slideIndex - 1].style.display = 'block';
             timelineItems[slideIndex - 1].classList.add('active');
 
-            setTimeout(() => {
-                timelineItems[slideIndex - 1].style.display = 'none';
-            }, 60000);
+            for (let i = 0; i < timelineItems.length; i++) {
+                if (i !== slideIndex - 1) {
+                    timelineItems[i].style.animation = 'fadeOut 0.5s forwards';
+                }
+            }
 
-            const timelineItemWidth = timelineItems[0].offsetWidth + 10; 
+            function toggleTimeline() {
+                const timeline = document.querySelector('.timeline');
+                isTimelineVisible = !isTimelineVisible;
+
+                if (isTimelineVisible) {
+                    timeline.classList.add('active');
+                } else {
+                    timeline.classList.remove('active');
+                }
+            }
+
+            const timelineItemWidth = timelineItems[0].offsetWidth + 10;
             const progressWidth = timelineItemWidth * slideIndex;
             timelineProgress.style.width = `${progressWidth}px`;
         }
-
 
         function clickTimelineItem(index) {
             const videoSlides = document.querySelectorAll('.myVideoSlide');
@@ -405,7 +430,7 @@ function getModalContent(moduleId) {
                 </div>
                 <!-- Add more video slides as needed -->
                 <div class="myVideoSlide video-slide">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=pxtGwAtBSjQ" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="100%" height="100%" src="https://youtu.be/pxtGwAtBSjQ?si=jGyoA_VX3tPMdMgX" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <!-- Add more video slides as needed -->
                 <!-- Timeline with Dates -->
