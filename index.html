@@ -215,9 +215,9 @@
 
 <body>
      <!-- Splash Screen -->
-    <div class="splash" onclick="hideSplash()">
+     <div class="splash" id="splash" onclick="hideSplash()">
         <img src="VantaBD_Coverart_smile_final.png" alt="Splash Image" class="comic-style1">
-    </div>
+</div>
     <div class="music-player">
         <audio id="audio" controls loop>
             <source src="testaudio.mp3" type="audio/mpeg">
@@ -241,6 +241,13 @@
     </div>
 
     <script>
+     function hideSplash() {
+            const splash = document.getElementById('splash');
+            const mainContent = document.getElementById('mainContent');
+            
+            splash.style.display = 'none';
+            mainContent.style.display = 'block';
+        }
         let openModalId = null;
         let isTimelineVisible = false;
 
@@ -284,9 +291,6 @@
                 closeAllModules();
             }
         }
-window.addEventListener('load', function () {
-            document.querySelector('.splash').style.display = 'none';
-        });
         let current2Slide = 1;
 
         function plus2Slides(n) {
