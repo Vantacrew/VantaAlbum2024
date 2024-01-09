@@ -8,7 +8,7 @@
     <meta name="description" content="Celebrating Vantacrow's spawn!">
     <link rel="stylesheet" href="vanta.css">
     <style>
-         body {
+          body {
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -18,49 +18,6 @@
             background-position: center;
             font-family: 'Arial', sans-serif;
             color: #000000;
-            background-color: rgba(200, 200, 170);
-        }
-
-        .container {
-            background-color: rgba(106, 100, 133);
-            padding: 20px;
-            margin: 50px auto;
-            border: 2px solid black;
-            display: grid;
-            width: 70%;
-        }
-
-        .splash {
-            cursor: pointer;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            height: 95%;
-            width: 100%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0);
-            transition: all ease-in-out 600ms;
-        }
-
-        .hidden {
-            transition: 0.5s;
-            display: none;
-        }
-
-        .splash-header {
-            height: 90%;
-            color: white;
-            font-family: consolas;
-            font-size: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .btn {
-            z-index: -1;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .main {
@@ -173,7 +130,7 @@
             margin: 5px;
             opacity: 0.7;
             cursor: pointer;
-            animation: fadeOut 0.5s forwards;
+            animation: fadeOut 0.5s forwards; 
         }
 
         .timeline-item.active {
@@ -195,7 +152,6 @@
             from {
                 opacity: 1;
             }
-
             to {
                 opacity: 0;
             }
@@ -224,19 +180,44 @@
             0% {
                 opacity: 0;
             }
-
             50% {
                 opacity: 1;
             }
-
             100% {
                 opacity: 0;
             }
+        }
+ .splash {
+            cursor: pointer;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .hidden {
+            transition: 3s;
+            display: none;
+        }
+
+        .splash img {
+            width: 100%; 
+            height: auto;
         }
     </style>
 </head>
 
 <body>
+     <!-- Splash Screen -->
+    <div class="splash" onclick="hideSplash()">
+        <img src="VantaBD_Coverart_smile_final.png" alt="Splash Image" class="comic-style1">
+    </div>
     <div class="music-player">
         <audio id="audio" controls loop>
             <source src="testaudio.mp3" type="audio/mpeg">
@@ -257,10 +238,6 @@
         <!-- Content for Modals -->
         <div id="modalContent" class="modal-content">
         </div>
-    </div>
-
-    <div class="splash" onclick="hideSplash()">
-       <img src="VantaBD_Coverart_smile (1).png" class="comic-style1">
     </div>
 
     <script>
@@ -307,7 +284,9 @@
                 closeAllModules();
             }
         }
-
+window.addEventListener('load', function () {
+            document.querySelector('.splash').style.display = 'none';
+        });
         let current2Slide = 1;
 
         function plus2Slides(n) {
@@ -359,18 +338,18 @@
             const timelineItems = document.querySelectorAll('.timeline-item');
             const timelineProgress = document.querySelector('.timeline-progress');
 
-            for (let i = 0; videoSlides.length; i++) {
+            for (let i = 0; i < videoSlides.length; i++) {
                 videoSlides[i].style.display = 'none';
             }
 
-            for (let i = 0; timelineItems.length; i++) {
+            for (let i = 0; i < timelineItems.length; i++) {
                 timelineItems[i].classList.remove('active');
                 timelineItems[i].style.animation = 'none';
             }
             videoSlides[slideIndex - 1].style.display = 'block';
             timelineItems[slideIndex - 1].classList.add('active');
 
-            for (let i = 0; timelineItems.length; i++) {
+            for (let i = 0; i < timelineItems.length; i++) {
                 if (i !== slideIndex - 1) {
                     timelineItems[i].style.animation = 'fadeOut 0.5s forwards';
                 }
@@ -416,20 +395,12 @@
             const totalSlides = videoSlides.length;
             let nextSlide = (currentVideoSlide + n - 1 + totalSlides) % totalSlides + 1;
 
-            for (let i = 0; timelineItems.length; i++) {
+            for (let i = 0; i < timelineItems.length; i++) {
                 timelineItems[i].classList.remove('active');
                 timelineItems[i].style.animation = 'none';
             }
 
             showVideoSlide(nextSlide);
-        }
-
-        function hideSplash() {
-            const splash = document.querySelector('.splash');
-            splash.style.opacity = '0';
-            setTimeout(() => {
-                splash.classList.add('hidden');
-            }, 610);
         }
 
 function getModalContent(moduleId) {
@@ -439,7 +410,7 @@ function getModalContent(moduleId) {
         case 'ComicsModal':
             return `
             <div id="ComicsModal" class="modal">
-                <div class="modal-container" onclick="openModule('ComicsModal')"></div>
+                <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
                 <div class="modal-content">
                 </div>
                 <div class="slideshow-containerB">
@@ -451,33 +422,33 @@ function getModalContent(moduleId) {
                 <!-- navigation dots for the comic slideshow -->
                 <div style="text-align:center">
                     <span class="dot" onclick="current2Slide(1)"></span>
-            <span class="dot" onclick="current2Slide(2)"></span>
+                    <span class="dot" onclick="current2Slide(2)"></span>
                     <!-- Add more dots as needed -->
                 </div>
                 <div style="text-align:center"></div>
                 <a class="prev2" onclick="plus2Slides(-1)">❮</a> <a class="next2" onclick="plus2Slides(1)">❯</a>
             </div>`;
-            case 'AlbumsModal':
-    return `
-    <div id="AlbumsModal" class="modal">
-        <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
-        <div class="modal-content">
-            <h2>Album</h2>
-        </div>
-        <div class="slideshow-containerD">
-            <div class="my3Slide fade"><img src="https://i.postimg.cc/rpty5dyq/image1.jpg" alt="Album 1" style="width: 100%;"></div>
-            <div class="my3Slide fade"><img src="https://i.postimg.cc/rpty5dyq/image2.jpg" alt="Album 2" style="width: 100%;"></div>
-            <!-- Add more album images as needed -->
-        </div>
-        <!-- navigation dots for the album slideshow -->
-        <div style="text-align:center">
-            <span class="dot" onclick="current3Slide(1)"></span>
-            <span class="dot" onclick="current3Slide(2)"></span>
-            <!-- Add more dots as needed -->
-        </div>
-        <div style="text-align:center"></div>
-        <a class="prev2" onclick="plus3Slides(-1)">❮</a> <a class="next2" onclick="plus3Slides(1)">❯</a>
-    </div>`;
+        case 'AlbumsModal':
+            return `
+            <div id="AlbumsModal" class="modal">
+                <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
+                <div class="modal-content">
+                    <h2>Album</h2>
+                </div>
+                <div class="slideshow-containerD">
+                    <div class="my3Slide fade"><img src="image-1.jpg" alt="Album 1" style="width: 100%;"></div>
+                    <div class="my3Slide fade"><img src="image-2.jpg" alt="Album 2" style="width: 100%;"></div>
+                    <!-- Add more album images as needed -->
+                </div>
+                <!-- navigation dots for the album slideshow -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="current3Slide(1)"></span>
+                    <span class="dot" onclick="current3Slide(2)"></span>
+                    <!-- Add more dots as needed -->
+                </div>
+                <div style="text-align:center"></div>
+                <a class="prev2" onclick="plus3Slides(-1)">❮</a> <a class="next2" onclick="plus3Slides(1)">❯</a>
+            </div>`;
         case 'video-container':
             return `
             <div id="video-container" class="modal">
