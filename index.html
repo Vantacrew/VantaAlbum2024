@@ -8,7 +8,7 @@
     <meta name="description" content="Celebrating Vantacrow's spawn!">
     <link rel="stylesheet" href="vanta.css">
     <style>
-        body {
+          body {
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -101,25 +101,6 @@
             display: block;
         }
 
-        .prev2,
-        .next2 {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            font-size: 16px;
-            color: #6b47c6;
-            background-color: #fff;
-            border: 2px solid #6b47c6;
-            border-radius: 5px;
-            padding: 8px;
-        }
-
-        .prev2:hover,
-        .next2:hover {
-            background-color: #6b47c6;
-            color: #fff;
-        }
-
         .timeline {
             display: flex;
             justify-content: space-around;
@@ -149,7 +130,7 @@
             margin: 5px;
             opacity: 0.7;
             cursor: pointer;
-            animation: fadeOut 0.5s forwards;
+            animation: fadeOut 0.5s forwards; 
         }
 
         .timeline-item.active {
@@ -176,6 +157,25 @@
             }
         }
 
+        .prev2,
+        .next2 {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            font-size: 16px;
+            color: #6b47c6;
+            background-color: #fff;
+            border: 2px solid #6b47c6;
+            border-radius: 5px;
+            padding: 8px;
+        }
+
+        .prev2:hover,
+        .next2:hover {
+            background-color: #6b47c6;
+            color: #fff;
+        }
+
         @keyframes fadeIn {
             0% {
                 opacity: 0;
@@ -187,42 +187,39 @@
                 opacity: 0;
             }
         }
-
-        .splash {
-            cursor: pointer;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100vw;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 1s, visibility 3s;
-        }
-
-        .splash.hidden {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s, visibility 3s;
-        }
-
+ .splash {
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s, visibility 3s;
+}
+.splash.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 3s;
+}
         .splash img {
-            width: 100%;
+            width: 100%; 
             height: auto;
         }
     </style>
 </head>
 
 <body>
-    <!-- Splash Screen -->
-    <div class="splash" id="splash" onclick="hideSplash()">
+     <!-- Splash Screen -->
+      <div class="splash" id="splash" onclick="hideSplash()">
         <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
-    </div>
+</div>
     <div class="music-player">
         <audio id="audio" controls loop>
     <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
@@ -246,11 +243,11 @@
     </div>
 
     <script>
-        function hideSplash() {
+     function hideSplash() {
             const splash = document.getElementById('splash');
             splash.style.display = 'none';
-            audio.play();
-
+        audio.play();
+            
         }
         let openModalId = null;
         let isTimelineVisible = false;
@@ -295,26 +292,25 @@
                 closeAllModules();
             }
         }
-
         function show2Slide(slideIndex) {
-            const photoSlides = document.querySelectorAll('.my2Slide');
-            const dots = document.querySelectorAll('.dot');
+        const photoSlides = document.querySelectorAll('.my2Slide');
+        const dots = document.querySelectorAll('.dot');
 
-            for (let i = 0; i < photoSlides.length; i++) {
-                photoSlides[i].style.display = 'none';
-                dots[i].classList.remove('active');
-            }
-
-            photoSlides[slideIndex - 1].style.display = 'block';
-            dots[slideIndex - 1].classList.add('active');
+        for (let i = 0; i < photoSlides.length; i++) {
+            photoSlides[i].style.display = 'none';
+            dots[i].classList.remove('active');
         }
 
-        function plus2Slides(n) {
-            const current2Slide = getCurrent2Slide();
-            show2Slide(current2Slide + n);
-        }
+        photoSlides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('active');
+    }
 
-        function getCurrent2Slide() {
+    function plus2Slides(n) {
+        const current2Slide = getCurrent2Slide();
+        show2Slide(current2Slide + n);
+    }
+
+    function getCurrent2Slide() {
             const photoSlides = document.querySelectorAll('.my2Slide');
             let current2Slide = 1;
 
@@ -327,19 +323,16 @@
 
             return current2Slide;
         }
-
         function connectComicsModalToCSS() {
-            const modalContent = document.querySelector('.modal-content');
-            modalContent.innerHTML = generateComicsModalContent();
-        }
-        connectComicsModalToCSS();
-
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.innerHTML = generateComicsModalContent();
+}
+connectComicsModalToCSS();
 
         let current3Slide = 1;
 
         function plus3Slides(n) {
-            const current3Slide = getCurrent3Slide();
-            show3Slide(current3Slide + n);
+            show3Slide(current3Slide += n);
         }
 
         function show3Slide(slideIndex) {
@@ -431,84 +424,67 @@
         }
 
         function getModalContent(moduleId) {
-            switch (moduleId) {
-                case 'myModalIntro':
-                    return '<h2>Vantacrow Spawn Day</h2><div></div><p>YAY VANTA</p><p><strong>The Vantacrow Photo Album</strong> text written by writing team Let\'s Get Celebrating woooo!</p>';
-                case 'ComicsModal':
-                    return `
-            <div id="ComicsModal" class="modal">
-            <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
-            <div class="modal-content">
-            </div>
-            <div class="slideshow-containerB">
-                <!-- Comic images here -->
-                <div class="my2Slide fade"><img src="image1.jpg" alt="Comic 1" style="width: 100%;"></div>
-                <div class="my2Slide fade"><img src="image2.jpg" alt="Comic 2" style="width: 100%;"></div>
-                <!-- Add more comic images as needed -->
-            </div>
-            <!-- navigation dots for the comic slideshow -->
-            <div style="text-align:center">
-                <span class="dot" onclick="show2Slide(1)"></span>
-                <span class="dot" onclick="show2Slide(2)"></span>
-                <!-- Add more dots as needed -->
-            </div>
-            <div style="text-align:center"></div>
-<a class="prev2" onclick="plus2Slides(-1)">❮</a> 
-<a class="next2" onclick="plus2Slides(1)">❯</a>
+    switch (moduleId) {
+        case 'myModalIntro':
+            return '<h2>Vantacrow Spawn Day</h2><div></div><p>YAY VANTA</p><p><strong>The Vantacrow Photo Album</strong> text written by writing team Let\'s Get Celebrating woooo!</p>';
+        case 'ComicsModal':
+            return `
+                <div id="ComicsModal" class="modal">
+                    <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
+                    <div class="modal-content">
+                        <div class="slideshow-containerB">
+                            <!-- Comic images here -->
+                            <div class="my2Slide fade"><img src="imagesource1.jpg" alt="Comic 1" style="width: 100%;"></div>
+                            <div class="my2Slide fade"><img src="imagesource2.jpg" alt="Comic 2" style="width: 100%;"></div>
+                            <!-- Add more comic images as needed -->
+                        </div>
+                        <div style="text-align:center"></div>
+                        <a class="prev2" onclick="plus2Slides(-1)">❮</a> <a class="next2" onclick="plus2Slides(1)">❯</a>
+                    </div>
+                </div>`;
+        case 'AlbumsModal':
+            return `
+                <div id="AlbumsModal" class="modal">
+                    <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
+                    <div class="modal-content">
+                        <h2>Album</h2>
+                        <div class="slideshow-containerD">
+                            <div class="my3Slide fade"><img src="image-1.jpg" alt="Album 1" style="width: 100%;"></div>
+                            <div class="my3Slide fade"><img src="image-2.jpg" alt="Album 2" style="width: 100%;"></div>
+                        </div>
+                        <div style="text-align:center"></div>
+                        <a class="prev2" onclick="plus3Slides(-1)">❮</a> <a class="next2" onclick="plus3Slides(1)">❯</a>
+                    </div>
+                </div>`;
+        case 'video-container':
+            return `
+                <div id="video-container" class="modal">
+                    <!-- Video Slide Show -->
+                    <div class="myVideoSlide video-slide">
+                        <!-- Replace the YouTube video link with the actual video link -->
+                        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/a5FhyNDk7iY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- Add more video slides as needed -->
+                    <div class="myVideoSlide video-slide">
+                        <iframe width="100%" height="100%" src="https://youtu.be/pxtGwAtBSjQ?si=jGyoA_VX3tPMdMgX" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <!-- Add more video slides as needed -->
+                    <!-- Timeline with Dates -->
+                    <div class="timeline">
+                        <div class="timeline-item">Jan 1, 2023</div>
+                        <div class="timeline-item">Feb 15, 2023</div>
+                        <!-- Add more timeline items as needed -->
+                    </div>
+                    <!-- Video navigation arrows -->
+                    <a class="prev2" onclick="plusVideoSlides(-1)">❮</a>
+                    <a class="next2" onclick="plusVideoSlides(1)">❯</a>
+                </div>`;
+        default:
+            return '';
+    }
+}
 
-        </div>`;
-                case 'AlbumsModal':
-                    return `
-            <div id="AlbumsModal" class="modal">
-                <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
-                <div class="modal-content">
-                    <h2>Album</h2>
-                </div>
-                <div class="slideshow-containerD">
-                    <div class="my3Slide fade"><img src="image-1.jpg" alt="Album 1" style="width: 100%;"></div>
-                    <div class="my3Slide fade"><img src="image-2.jpg" alt="Album 2" style="width: 100%;"></div>
-                    <!-- Add more album images as needed -->
-                </div>
-                <!-- navigation dots for the album slideshow -->
-                <div style="text-align:center">
-                    <span class="dot" onclick="current3Slide(1)"></span>
-                    <span class="dot" onclick="current3Slide(2)"></span>
-                    <!-- Add more dots as needed -->
-                </div>
-                <div style="text-align:center"></div>
-            <a class="prev2" onclick="plus3Slides(-1)">❮</a> 
-            <a class="next2" onclick="plus3Slides(1)">❯</a>
-
-            </div>`;
-                case 'video-container':
-                    return `
-            <div id="video-container" class="modal">
-                <!-- Video Slide Show -->
-                <div class="myVideoSlide video-slide">
-                    <!-- Replace the YouTube video link with the actual video link -->
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/a5FhyNDk7iY" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <!-- Add more video slides as needed -->
-                <div class="myVideoSlide video-slide">
-                    <iframe width="100%" height="100%" src="https://youtu.be/pxtGwAtBSjQ?si=jGyoA_VX3tPMdMgX" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <!-- Add more video slides as needed -->
-                <!-- Timeline with Dates -->
-                <div class="timeline">
-                    <div class="timeline-item">Jan 1, 2023</div>
-                    <div class="timeline-item">Feb 15, 2023</div>
-                    <!-- Add more timeline items as needed -->
-                </div>
-                <!-- Video navigation arrows -->
-                <a class="prev2" onclick="plusVideoSlides(-1)">❮</a>
-                <a class="next2" onclick="plusVideoSlides(1)">❯</a>
-            </div>`;
-                default:
-                    return '';
-            }
-        }
-    </script>
-</body>
-
+</script>
+   </body>
 </html>
 <img src="VantaBD_Coverart_smile_final.png" class="comic-style1">
