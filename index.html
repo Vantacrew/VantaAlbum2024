@@ -222,8 +222,8 @@
 </div>
     <div class="music-player">
         <audio id="audio" controls loop>
-            <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
-        </audio>
+    <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
+</audio>
     </div>
 
     <div class="main">
@@ -246,6 +246,8 @@
      function hideSplash() {
             const splash = document.getElementById('splash');
             splash.style.display = 'none';
+        audio.play();
+            
         }
         let openModalId = null;
         let isTimelineVisible = false;
@@ -479,10 +481,7 @@ function getModalContent(moduleId) {
             return '';
     }
 }
-document.addEventListener('DOMContentLoaded', function () {
-    const audio = document.getElementById('audio');
-    audio.play();
-});
+
 </script>
    </body>
 </html>
