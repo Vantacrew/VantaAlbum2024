@@ -212,19 +212,23 @@
             height: auto;
         }
 .intro-modal-content {
-    background-image: url('introbg.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: #000000;
-    padding: 20px; 
-    width: 100%; 
-    height: 100%; 
-    max-width: 800px; 
-    max-height: 600px; 
-    margin: auto; 
-    box-sizing: border-box; 
-    font-family: 'Georgia', serif;
+   background-image: url('introbg.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #000000;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            height: 100%;
+            max-height: 600px;
+            margin: auto;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 }
 .intro-modal-content h2,
 .intro-modal-content p,
@@ -447,8 +451,8 @@ connectComicsModalToCSS();
     switch (moduleId) {
         case 'myModalIntro':
     return `
-    <div class="intro-modal-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background-image: url('introbg.png'); background-size: cover; color: #000000; padding: 20px; width: 100%; max-width: 800px; height: 100%; max-height: 600px; margin: auto; box-sizing: border-box; font-family: 'Georgia', serif;">
-    <p>
+    <div class="intro-modal-content"
+    
         <h2>Spawning in...</h2>
         <div></div>
         <p>Welcome Mr. Bringer, lovely vantacrew, darling kurococo, and all the amazing peoples in between! The Spawn Day Website is a celebration of artistry, storytelling, and a showcase of the crew's love. Explore a mosaic of stunning visuals, captivating clips, and intricately crafted comics. Embark on a journey through this interactive platform, where every click unveils a new dimension of creativity. Welcome to your Birthday Site!</p>
