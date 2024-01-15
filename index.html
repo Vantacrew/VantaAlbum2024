@@ -483,18 +483,18 @@ connectComicsModalToCSS();
     `;
      case 'ComicsModal':
     return `
-        <div id="ComicsModal" class="modal">
-            <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
-            <div class="modal-content">
-                <div class="slideshow-containerB">
-                    <!-- Comic images here -->
-                    <div class="my2Slide fade"><img src="image1.png" alt="Comic 1" class="comic-image"></div>
-                    <div class="my2Slide fade"><img src="image2.png" alt="Comic 2" class="comic-image"></div>
-                    <!-- Add more comic images as needed -->
-                </div>
-                <div style="text-align:center"></div>
-                <a class="prev2" onclick="plus2Slides(-1)">❮</a> <a class="next2" onclick="plus2Slides(1)">❯</a>
-            </div>
+     <div id="ComicsModal" class="modal">
+    <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
+    <div class="modal-content">
+        <div class="slideshow-containerB">
+            <!-- Comic images here -->
+            <div class="my2Slide fade"><img src="image1.png" alt="Comic 1" class="comic-style2"></div>
+            <div class="my2Slide fade"><img src="image2.png" alt="Comic 2" class="comic-style2"></div>
+            <!-- Add more comic images as needed -->
+        </div>
+        <div style="text-align:center"></div>
+        <a class="prev2" onclick="plus2Slides(-1)">❮</a> <a class="next2" onclick="plus2Slides(1)">❯</a>
+    </div>
         </div>`;
         case 'AlbumsModal':
             return `
