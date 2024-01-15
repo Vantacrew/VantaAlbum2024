@@ -157,23 +157,46 @@
         }
 
         .prev2,
-        .next2 {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            font-size: 16px;
-            color: #6b47c6;
-            background-color: #fff;
-            border: 2px solid #6b47c6;
-            border-radius: 5px;
-            padding: 8px;
-        }
+.next2 {
+    cursor: pointer;
+    position: fixed;
+    top: 50%;
+    font-size: 16px;
+    color: #6b47c6;
+    background-color: #fff;
+    border: 2px solid #6b47c6;
+    border-radius: 5px;
+    padding: 8px;
+    transform: translateY(-50%);
+    width: 40px; /* Adjust the width as needed */
+    text-align: center;
+    z-index: 999; /* Ensure buttons appear on top */
+}
 
-        .prev2:hover,
-        .next2:hover {
-            background-color: #6b47c6;
-            color: #fff;
-        }
+.prev2 {
+    left: calc(50% - 395.1px); 
+}
+
+.next2 {
+    left: calc(50% + 358px); 
+}
+
+.prev2:hover,
+.next2:hover {
+    background-color: #6b47c6;
+    color: #fff;
+}
+.prev2, .next2 {
+    width: 15px; /* Adjust the width as needed */
+}
+
+.prev2 {
+    text-align: center;
+}
+
+.next2 {
+    text-align: center;
+}
 
         @keyframes fadeIn {
             0% {
