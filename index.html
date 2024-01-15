@@ -257,7 +257,7 @@
             justify-content: center;
         }
 .comic-image,
-        .comic-style2 {
+    .comic-style2 {
             width: 80%; 
             height: 80%; 
             max-width: 800px;
@@ -377,9 +377,11 @@
 
             return current2Slide;
         }
-        function connectComicsModalToCSS() {
+      function connectComicsModalToCSS() {
     const modalContent = document.querySelector('.modal-content');
     modalContent.innerHTML = generateComicsModalContent();
+    const comicSlides = document.querySelectorAll('.my2Slide img');
+    comicSlides.forEach(slide => slide.classList.add('comic-style2'));
 }
 let currentComicSlide = 1;
 
