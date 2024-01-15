@@ -405,7 +405,6 @@
                 slide.style.zIndex = index + 1;
             });
         }
-        connectComicsModalToCSS();
 
         let currentComicSlide = 1;
 
@@ -428,6 +427,20 @@
 
             comicSlides[currentComicSlide - 1].style.display = 'block';
         }
+
+        function connectComicsModalToCSS() {
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = generateComicsModalContent();
+            const comicSlides = document.querySelectorAll('.my2Slide');
+            comicSlides.forEach((slide, index) => {
+                slide.style.zIndex = index + 1;
+            });
+        }
+
+        function generateComicsModalContent() {
+
+        }
+
         connectComicsModalToCSS();
 
         let current3Slide = 1;
