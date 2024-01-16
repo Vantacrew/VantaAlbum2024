@@ -101,3 +101,10 @@ element.style {
 .mySlides {
    text-align: center;
 }
+<div class="grid-container">
+   <div class="myModelIntro">1</div>
+  <div class="ComicModel">4</div>
+  <div class="AlbumsModel">7</div>
+  <div class="video-container">6</div>
+  <div class="CreditModel">9</div>
+</div>
