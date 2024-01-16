@@ -280,9 +280,26 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
-            .my2Slide.active {
-                display: block;
-            }
+             .my2Slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .my2Slide img {
+        width: 100%; /* Force all images to the same width */
+        max-width: 800px; /* Set a maximum width for responsiveness */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .my2Slide.active {
+        display: block;
+    }
     </style>
 </head>
 
@@ -623,7 +640,7 @@
                     onclick="toggleModule('CreditModel')"></div>
                     <div class="modal-content">
                         <h2>Credit</h2>
-                        <div class="slideshow-containerD">
+                        <div class="slideshow-containerF">
                     </div>
                     <!-- Video navigation arrows -->
                     <a class="prev2" onclick="plusVideoSlides(-1)">❮</a>
