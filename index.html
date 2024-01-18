@@ -8,7 +8,7 @@
     <meta name="description" content="Celebrating Vantacrow's spawn!">
     <link rel="stylesheet" href="vanta.css">
     <style>
-     body {
+   body {
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -20,52 +20,53 @@
             color: #000000;
         }
 
-    .main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-}
+        .main {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
 
-.button-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-}
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
 
-.btn-group img:nth-child(1) {
-    grid-area: 1 / 1 / 2 / 2;
-}
+        .btn-group img:nth-child(1) {
+            grid-area: 1 / 1 / 2 / 2;
+        }
 
-.btn-group img:nth-child(2) {
-    grid-area: 2 / 2 / 3 / 3;
-}
+        .btn-group img:nth-child(2) {
+            grid-area: 2 / 2 / 3 / 3;
+        }
 
-.btn-group img:nth-child(3) {
-    grid-area: 3 / 3 / 4 / 4;
-}
+        .btn-group img:nth-child(3) {
+            grid-area: 3 / 3 / 4 / 4;
+        }
 
-.btn-group img:nth-child(4) {
-    grid-area: 1 / 2 / 2 / 3;
-}
+        .btn-group img:nth-child(4) {
+            grid-area: 1 / 2 / 2 / 3;
+        }
 
-.btn-group img:nth-child(5) {
-    grid-area: 2 / 3 / 3 / 4;
-}
+        .btn-group img:nth-child(5) {
+            grid-area: 2 / 3 / 3 / 4;
+        }
 
-.button-grid img {
-    width: 50px;
-    height: 50px;
-    border: 2px solid #6b47c6;
-    cursor: pointer;
-}
+        .button-grid img {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #6b47c6;
+            cursor: pointer;
+        }
+
         .modal-container {
             display: fixed;
             align-items: center;
@@ -83,17 +84,17 @@
         }
 
         .modal-content {
-    position: fixed;
-    top: 67%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 900px; 
-    max-width: 100%;
-    height: 800px; 
-    max-height: 100%;
-    overflow: hidden;
-    z-index: 6;
-}
+            position: fixed;
+            top: 67%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            max-width: 100%;
+            height: 800px;
+            max-height: 100%;
+            overflow: hidden;
+            z-index: 6;
+        }
 
         body.modal-open {
             overflow: hidden;
@@ -179,6 +180,7 @@
             from {
                 opacity: 1;
             }
+
             to {
                 opacity: 0;
             }
@@ -229,9 +231,11 @@
             0% {
                 opacity: 0;
             }
+
             50% {
                 opacity: 1;
             }
+
             100% {
                 opacity: 0;
             }
@@ -267,7 +271,6 @@
 
         .intro-modal-content {
             background-image: url('introbg.png');
-            background-image: url('introbg.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -281,7 +284,7 @@
             box-sizing: border-box;
             font-family: 'Georgia', serif;
             position: absolute;
-            top: 30%;
+            top: 38%;
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
@@ -299,17 +302,20 @@
             margin: auto;
             position: relative;
             object-fit: contain;
-            .my2Slide {
-                display: none;
-                text-align: center;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-            .my2Slide.active {
-                display: block;
-            }
+        }
+
+        .my2Slide {
+            display: none;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .my2Slide.active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -320,18 +326,18 @@
     </div>
     <div class="music-player">
         <audio id="audio" controls loop>
-    <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
-</audio>
+            <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
+        </audio>
     </div>
 
-   <div class="main">
+    <div class="main">
         <!-- Move the button codes within the main grid container -->
         <div class="btn-group">
-         <img src="image.png" alt="Intro Model" onclick="openModule('myModalIntro')">
-<img src="image.png" alt="Comic Model" onclick="openModule('ComicsModal')">
-<img src="image.png" alt="Album Model" onclick="openModule('AlbumsModal')">
-<img src="image.png" alt="video-container" onclick="openModule('video-container')">
-<img src="image.png" alt="Credit Model" onclick="openModule('CreditModel')">
+            <img src="image.png" alt="Intro Model" onclick="openModule('myModalIntro')">
+            <img src="image.png" alt="Comic Model" onclick="openModule('ComicsModal')">
+            <img src="image.png" alt="Album Model" onclick="openModule('AlbumsModal')">
+            <img src="image.png" alt="video-container" onclick="openModule('video-container')">
+            <img src="image.png" alt="Credit Model" onclick="openModule('CreditModel')">
         </div>
 
         <!-- Overlay for Modals -->
@@ -347,8 +353,8 @@
             const splash = document.getElementById('splash');
             splash.style.display = 'none';
             audio.play();
-
         }
+
         let openModalId = null;
         let isTimelineVisible = false;
 
@@ -369,29 +375,30 @@
             isTimelineVisible = false;
         }
 
-       function openModule(moduleId) {
-    const modalContent = document.getElementById('modalContent');
-    const modalContainer = document.getElementById('modalContainer');
-    const body = document.body;
-    const timeline = document.querySelector('.timeline');
-    
-           if (openModalId === null) {
-        modalContent.innerHTML = getModalContent(moduleId);
-        modalContent.classList.add('modal-content-scrollable');
-        modalContent.insertAdjacentHTML('beforeend', '<span class="close" onclick="closeAllModules()">×</span>');
-        modalContainer.style.visibility = 'visible';
-        modalContainer.style.opacity = '1';
-        body.style.overflow = 'hidden';
-        openModalId = moduleId;
-        if (moduleId === 'video-container') {
-            showVideoSlide(1);
-            timeline.classList.add('active');
-            isTimelineVisible = true;
+        function openModule(moduleId) {
+            const modalContent = document.getElementById('modalContent');
+            const modalContainer = document.getElementById('modalContainer');
+            const body = document.body;
+            const timeline = document.querySelector('.timeline');
+
+            if (openModalId === null) {
+                modalContent.innerHTML = getModalContent(moduleId);
+                modalContent.classList.add('modal-content-scrollable');
+                modalContent.insertAdjacentHTML('beforeend', '<span class="close" onclick="closeAllModules()">×</span>');
+                modalContainer.style.visibility = 'visible';
+                modalContainer.style.opacity = '1';
+                body.style.overflow = 'hidden';
+                openModalId = moduleId;
+                if (moduleId === 'video-container') {
+                    showVideoSlide(1);
+                    timeline.classList.add('active');
+                    isTimelineVisible = true;
+                }
+            } else if (openModalId === moduleId) {
+                closeAllModules();
+            }
         }
-    } else if (openModalId === moduleId) {
-        closeAllModules();
-    }
-}
+
         function show2Slide(slideIndex) {
             const photoSlides = document.querySelectorAll('.my2Slide');
             const dots = document.querySelectorAll('.dot');
@@ -450,12 +457,13 @@
             }
 
             for (let i = 0; i < comicSlides.length; i++) {
-                comicSlides[i].style.display = 'none';
+                if (i === currentComicSlide - 1) {
+                    comicSlides[i].style.display = 'block';
+                } else {
+                    comicSlides[i].style.display = 'none';
+                }
             }
-
-            comicSlides[currentComicSlide - 1].style.display = 'block';
         }
-        connectComicsModalToCSS();
 
         let current3Slide = 1;
 
@@ -578,22 +586,22 @@
                 case 'ComicsModal':
                     return `
         <div id="ComicsModal" class="modal">
-            <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
-            <div class="modal-content">
-                <div class="slideshow-containerB">
-                    <!-- Comic images here -->
-                   <div class="my2Slide fade">
-    <img src="image1.png" alt="Comic 1" class="comic-image">
-</div>
-<div class="my2Slide fade">
-    <img src="image2.png" alt="Comic 2" class="comic-image">
-</div>
-                    <!-- Add more comic images as needed -->
-                </div>
-                <div style="text-align:center">
-                    <a class="prev2" onclick="plus2Slides(-1)">❮</a>
-                    <a class="next2" onclick="plus2Slides(1)">❯</a>
-                </div>
+    <div class="modal-container" onclick="toggleModule('ComicsModal')"></div>
+    <div class="modal-content">
+        <div class="slideshow-containerB">
+            <!-- Comic images here -->
+            <div class="my2Slide fade">
+                <img src="image1.png" alt="Comic 1" class="comic-image">
+            </div>
+            <div class="my2Slide fade">
+                <img src="image2.png" alt="Comic 2" class="comic-image">
+            </div>
+            <!-- Add more comic images as needed -->
+        </div>
+        <div style="text-align:center">
+            <a class="prev2" onclick="plus2Slides(-1)">❮</a>
+            <a class="next2" onclick="plus2Slides(1)">❯</a>
+        </div>
             </div>
         </div>`;
                 case 'AlbumsModal':
