@@ -20,7 +20,7 @@
             color: #000000;
         }
 
-        .main {
+    .main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -33,7 +33,7 @@
     gap: 20px;
     padding: 20px;
     position: fixed;
-    z-index: 4;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -326,11 +326,11 @@
    <div class="main">
         <!-- Move the button codes within the main grid container -->
         <div class="btn-group">
-            <img src="image.png" alt="Intro Model" onclick="openModule('myModalIntro')">
-            <img src="image.png" alt="Comic Model" onclick="openModule('ComicsModal')">
-            <img src="image.png" alt="Album Model" onclick="openModule('AlbumsModal')">
-            <img src="image.png" alt="video-container" onclick="openModule('video-container')">
-            <img src="image.png" alt="Credit Model" onclick="openModule('CreditModel')">
+         <img src="image.png" alt="Intro Model" onclick="openModule('myModalIntro')">
+<img src="image.png" alt="Comic Model" onclick="openModule('ComicsModal')">
+<img src="image.png" alt="Album Model" onclick="openModule('AlbumsModal')">
+<img src="image.png" alt="video-container" onclick="openModule('video-container')">
+<img src="image.png" alt="Credit Model" onclick="openModule('CreditModel')">
         </div>
 
         <!-- Overlay for Modals -->
@@ -368,30 +368,29 @@
             isTimelineVisible = false;
         }
 
-        function openModule(moduleId) {
-            const modalContent = document.getElementById('modalContent');
-            const modalContainer = document.getElementById('modalContainer');
-            const body = document.body;
-            const timeline = document.querySelector('.timeline');
-
-            if (openModalId === null) {
-                modalContent.innerHTML = getModalContent(moduleId);
-                modalContent.classList.add('modal-content-scrollable');
-                modalContent.insertAdjacentHTML('beforeend', '<span class="close" onclick="closeAllModules()">×</span>');
-                modalContainer.style.visibility = 'visible';
-                modalContainer.style.opacity = '1';
-                body.style.overflow = 'hidden';
-                openModalId = moduleId;
-                if (moduleId === 'video-container') {
-                    showVideoSlide(1);
-                    timeline.classList.add('active');
-                    isTimelineVisible = true;
-                }
-            } else if (openModalId === moduleId) {
-                closeAllModules();
-            }
+       function openModule(moduleId) {
+    const modalContent = document.getElementById('modalContent');
+    const modalContainer = document.getElementById('modalContainer');
+    const body = document.body;
+    const timeline = document.querySelector('.timeline');
+    
+           if (openModalId === null) {
+        modalContent.innerHTML = getModalContent(moduleId);
+        modalContent.classList.add('modal-content-scrollable');
+        modalContent.insertAdjacentHTML('beforeend', '<span class="close" onclick="closeAllModules()">×</span>');
+        modalContainer.style.visibility = 'visible';
+        modalContainer.style.opacity = '1';
+        body.style.overflow = 'hidden';
+        openModalId = moduleId;
+        if (moduleId === 'video-container') {
+            showVideoSlide(1);
+            timeline.classList.add('active');
+            isTimelineVisible = true;
         }
-
+    } else if (openModalId === moduleId) {
+        closeAllModules();
+    }
+}
         function show2Slide(slideIndex) {
             const photoSlides = document.querySelectorAll('.my2Slide');
             const dots = document.querySelectorAll('.dot');
