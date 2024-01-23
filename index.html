@@ -189,35 +189,32 @@
                 opacity: 0;p
             }
         }
- .slideshow-containerC {
-        position: relative;
-        max-width: 800px;
-        max-height: 1600px
-        justify-content: center;
-        z-index: 5;
-        margin: auto;
-    }
-
-    .my2Slide {
+  .my2Slide {
     text-align: center;
     width: 100%;
-    height: auto; 
-    max-height: 150%;
+    height: auto;
+    max-height: 100%; 
     display: flex;
-    align-items: flex-start;
+    align-items: center; 
     justify-content: center;
-    margin-top: -50vh;
-    z-index: 5;
+    overflow: hidden; 
 }
 
 .my2Slide img {
     max-width: 100%;
-    max-height: 100vh;
-    min-height: 120%;
-    height: auto; 
+    max-height: 100%;
+    height: auto;
     object-fit: contain;
-    z-index: 5;
+}
+
+.slideshow-containerC {
+    position: relative;
+    max-width: 800px;
+    max-height: 1600px;
     justify-content: center;
+    z-index: 5;
+    margin: auto;
+    overflow: hidden; 
 }
    .prev2,
     .next2 {
