@@ -35,6 +35,7 @@
 }
 
 /* Add media query for screens with a maximum width of 768px */
+@media only screen and (max-width: 768px) {
     .main {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -46,8 +47,14 @@
         gap: 10px;
         padding: 10px;
     }
+}
 
-   .modal-container {
+@media only screen and (max-width: 480px) {
+    .btn-group {
+        grid-template-columns: 1fr;
+    }
+}
+        .modal-container {
             display: fixed;
             align-items: center;
             justify-content: center;
@@ -93,7 +100,7 @@
             height: 90%;
             max-width: 800px;
             max-height: 600px;
-            margin: 2;
+            margin: auto;
             position: relative;
         }
 #video-container .prev2,
@@ -184,13 +191,13 @@
         }
 .my2Slide {
     text-align: center;
-    width: auto;
-    max-height: 1000px;
-    max-width: 800px;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    margin: 0;
 }
 
 .my2Slide img {
@@ -198,21 +205,25 @@
     max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: flex;
-    z-index: 20;
+    object-fit: cover;
 }
 
 .slideshow-containerC {
     position: relative;
-    width: auto;
-    height: auto;
-    top: 100%
+    width: 100%;
+    height: 100vh; 
     justify-content: center;
-    z-index: 21;
-    margin: 0;
-    overflow: hidden
+    z-index: 5;
+    margin: 0 auto;
+    overflow: hidden;
+    top: -30vh;
 }
 
+@media only screen and (max-width: 768px) {
+    .slideshow-containerC {
+        height: auto; 
+    }
+}
    .prev2,
     .next2 {
         cursor: pointer;
@@ -344,7 +355,6 @@
         object-fit: contain;
         margin-top: 20px; 
     }
-        
     </style>
 </head>
 
@@ -652,7 +662,6 @@ function getCurrentComicSlide() {
                         <a class="prev2" onclick="plus3Slides(-1)">❮</a> <a class="next2" onclick="plus3Slides(1)">❯</a>
                     </div>
                 </div>`;
-            
                 case 'video-container':
                     return `
                 <div id="video-container" class="modal">
@@ -676,19 +685,20 @@ function getCurrentComicSlide() {
                     <a class="prev2" onclick="plusVideoSlides(-1)">❮</a>
                     <a class="next2" onclick="plusVideoSlides(1)">❯</a>
                 </div>`;
-                      case 'CreditModel':
-                    return `
-                <div id="CreditModel class="modal">
+                case 'CreditModel':
+            return `
+                <div id="CreditModel" class="modal">
                     <div class="modal-container" onclick="toggleModule('CreditModel')"></div>
                     <div class="modal-content">
                         <h2>Credit</h2>
-                        div class="slideshow-containerD">
+                        <div class="slideshow-containerD">
                             <div class="my3Slide fade"><img src="Lead Credits_P1.jpg" alt="Credits 1" style="width: 80%;"></div>
                             <div class="my3Slide fade"><img src="Lead Credits_P2.jpg" alt="Credits 2" style="width: 100%;"></div>
                         </div>
                         <div style="text-align:center"></div>
                         <a class="prev2" onclick="plus3Slides(-1)">❮</a> <a class="next2" onclick="plus3Slides(1)">❯</a>
                     </div>
+                </div>`;
                 default:
                     return '';
             }
