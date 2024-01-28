@@ -232,6 +232,7 @@ body.modal-open {
             opacity: 1;
             visibility: visible;
             transition: opacity 1s, visibility 3s;
+            z-index:2500;
         }
 
         .splash.hidden {
@@ -245,6 +246,9 @@ body.modal-open {
             width: 100%;
             height: auto;
         }
+.intro-splash {
+    z-index: 2000; 
+}
 
 .intro-bg-container {
     background-image: url('introbg.png');
@@ -332,7 +336,7 @@ body.modal-open {
     </div>
     
     <!-- Second Splash Screen -->
-    <div class="splash" id="splash1" onclick="hideSplash1()">
+    <div class="intro-splash" id="splash1" onclick="hideSplash1()">
         <img src="title.png" alt="Second Splash Image" class="comic-style2">
     </div>
     <div class="music-player">
