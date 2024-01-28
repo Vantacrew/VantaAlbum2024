@@ -330,6 +330,11 @@ body.modal-open {
     <div class="splash" id="splash" onclick="hideSplash()">
         <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
     </div>
+    
+    <!-- Second Splash Screen -->
+    <div class="splash" id="splash1" onclick="hideSplash1()">
+        <img src="title.png" alt="Second Splash Image" class="comic-style2">
+    </div>
     <div class="music-player">
         <audio id="audio" controls loop>
             <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
@@ -355,11 +360,17 @@ body.modal-open {
     </div>
 
     <script>
-        function hideSplash() {
-    const splash = document.getElementById('splash');
-    splash.classList.add('hidden'); 
-    audio.play();
-}
+      function hideSplash() {
+            const splash = document.getElementById('splash');
+            splash.classList.add('hidden'); 
+            audio.play(); // Assuming you have defined the audio element elsewhere
+        }
+
+        function hideSplash1() {
+            const splash1 = document.getElementById('splash1');
+            splash1.classList.add('hidden'); 
+            audio.play(); 
+        }
 
         let openModalId = null;
         let isTimelineVisible = false;
