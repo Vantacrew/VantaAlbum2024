@@ -217,7 +217,7 @@ body.modal-open {
             }
         }
 
-        .splash {
+          .splash {
             cursor: pointer;
             position: fixed;
             top: 0;
@@ -235,15 +235,28 @@ body.modal-open {
         }
 
         .splash.hidden {
-            display:none;
+            display: none;
             opacity: 0;
             visibility: hidden;
             transition: opacity 1s, visibility 3s;
         }
 
         .splash img {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: auto;
+            z-index: 1000; 
+        }
+
+        .title-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 900; 
         }
 
 .intro-bg-container {
@@ -291,8 +304,11 @@ body.modal-open {
 
 <body>
     <!-- Splash Screen -->
-    <div class="splash" id="splash" onclick="hideSplash()">
+   <div class="splash" id="splash" onclick="hideSplash()">
         <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
+    </div>
+    <div class="splash" id="titleSplash" onclick="hideTitleSplash()">
+        <img src="title.png" alt="Title Image">
     </div>
     <div class="music-player">
         <audio id="audio" controls loop>
@@ -325,11 +341,10 @@ body.modal-open {
             audio.play(); // Assuming you have defined the audio element elsewhere
         }
 
-        function hideSplash1() {
-            const splash1 = document.getElementById('splash1');
-            splash1.classList.add('hidden'); 
-            audio.play(); 
-        }
+        function hideTitleSplash() {
+    const titleSplash = document.getElementById('titleSplash');
+    titleSplash.classList.add('hidden');
+}
 
         let openModalId = null;
         let isTimelineVisible = false;
