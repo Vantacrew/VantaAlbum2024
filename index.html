@@ -480,7 +480,70 @@ function getCurrentComicSlide() {
 
     return currentComicSlide;
 }
+         let currentCreditSlide = 1;
 
+        function showCreditSlide(slideIndex) {
+    const comicSlides = document.querySelectorAll('.my2Slide');
+
+    if (slideIndex > creditSlides.length) {
+        currentCreditSlide = 1;
+    } else if (slideIndex < 1) {
+        currentCreditSlide = creditSlides.length;
+    }
+
+    for (let i = 0; i < creditSlides.length; i++) {
+        creditSlides[i].style.display = 'none';
+    }
+
+    creditSlides[currentCreditSlide - 1].style.display = 'block';
+}
+        function plusCreditSlides(n) {
+        const currentCreditSlide = getCurrentCreditSlide();
+        showCreditSlide(currentCreditSlide + n);
+    }
+
+        function getCurrentCreditSlide() {
+            const creditSlides = document.querySelectorAll('.my2Slide');
+            let currentCreditSlide = 1;
+
+            for (let i = 0; i < creditSlides.length; i++) {
+                if (creditSlides[i].classList.contains('active')) {
+                    currentCreditSlide = i + 1;
+                    break;
+                }
+            }
+
+            return currentCreditSlide;
+        }
+        connectCreditModalToCSS();
+
+        function connectCreditModalToCSS() {
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = generateCreditsModalContent();
+            const creditSlides = document.querySelectorAll('.my2Slide');
+            creditSlides.forEach((slide, index) => {
+                slide.style.zIndex = index + 1;
+            });
+        }
+
+function plusCreditSlides(n) {
+    currentCreditSlide += n;
+    showCreditSlide(currentCreditSlide);
+}
+
+function getCurrentCreditSlide() {
+    const creditSlides = document.querySelectorAll('.my2Slide');
+    let currentCreditSlide = 1;
+
+    for (let i = 0; i < creditSlides.length; i++) {
+        if (creditSlides[i].classList.contains('active')) {
+            currentCreditSlide = i + 1;
+            break;
+        }
+    }
+
+    return currentCreditSlide;
+}
         let current3Slide = 1;
 
         function plus3Slides(n) {
