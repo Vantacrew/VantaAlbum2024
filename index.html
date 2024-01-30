@@ -218,44 +218,47 @@ body.modal-open {
         }
 
           .splash {
-            cursor: pointer;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 1s, visibility 3s;
-        }
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 1s, visibility 3s;
+}
+
 
         .splash.hidden {
-            display: none;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1s, visibility 3s;
-        }
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 3s;
+}
 
-        .splash img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 800;
-        }
+.splash img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 800;
+}
 
-        .title-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: auto;
-            z-index: 900; 
-        }
+       .title-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 900;
+}
 
 .intro-bg-container {
     background-image: url('introbg.png');
@@ -303,11 +306,11 @@ body.modal-open {
 <body>
     <!-- Splash Screen -->
     <div class="splash" id="splash" onclick="hideSplash()">
-        <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
-    </div>
-    <div class="splash" id="titleSplash" onclick="hideTitleSplash()">
-        <img src="title.png" alt="Title Image">
-    </div>
+    <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
+</div>
+<div class="splash" id="titleSplash" onclick="hideTitleSplash()">
+    <img src="title.png" alt="Title Image">
+</div>
     <div class="music-player">
         <audio id="audio" controls loop>
             <source src="International_Vantham-_Behind_the_Mask_-_Looped_Twice.wav" type="audio/mpeg">
