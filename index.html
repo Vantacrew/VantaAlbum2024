@@ -241,13 +241,11 @@ body.modal-open {
             transition: opacity 1s, visibility 3s;
         }
 
-        .splash img {
+        .splash-img {
         cursor: pointer;
             position: fixed;
             top: 0;
             left: 0;
-            height: 100vh;
-            width: 100vw;
             z-index: 1000;
             display: flex;
             justify-content: center;
@@ -312,7 +310,7 @@ body.modal-open {
 
 <body>
     <!-- Splash Screen -->
-   <div class="splash" id="splash" onclick="hideSplash()">
+   <div class="splash" id="splash-img" onclick="hideSplash()">
         <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
     </div>
     <div class="splash" id="titleSplash" onclick="hideTitleSplash()">
