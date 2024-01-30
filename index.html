@@ -235,29 +235,23 @@ body.modal-open {
         }
 
         .splash.hidden {
-         display: none;
+            display: none;
             opacity: 0;
             visibility: hidden;
             transition: opacity 1s, visibility 3s;
         }
 
-        .splash-img {
-        cursor: pointer;
-            position: fixed;
+        .splash img {
+            position: absolute;
             top: 0;
             left: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 1s, visibility 3s;
+            width: 100vh;
+            height: 100vh;
+            z-index: 1000; 
         }
 
         .title-image {
-         position: absolute;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -310,7 +304,7 @@ body.modal-open {
 
 <body>
     <!-- Splash Screen -->
-   <div class="splash" id="splash-img" onclick="hideSplash()">
+    <div class="splash" id="splash" onclick="hideSplash()">
         <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
     </div>
     <div class="splash" id="titleSplash" onclick="hideTitleSplash()">
@@ -341,17 +335,17 @@ body.modal-open {
     </div>
 
     <script>
-      function hideSplash() {
+        function hideSplash() {
             const splash = document.getElementById('splash');
             splash.classList.add('hidden'); 
-            audio.play(); // Assuming you have defined the audio element elsewhere
+            const audio = document.getElementById('audio');
+            audio.play(); 
         }
 
         function hideTitleSplash() {
-    const titleSplash = document.getElementById('titleSplash');
-    titleSplash.classList.add('hidden');
-}
-
+            const titleSplash = document.getElementById('titleSplash');
+            titleSplash.classList.add('hidden');
+        }
         let openModalId = null;
         let isTimelineVisible = false;
 
