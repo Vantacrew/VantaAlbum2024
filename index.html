@@ -9,34 +9,35 @@
     <link rel="stylesheet" href="vanta.css">
     <style>
   body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-attachment: fixed;
-    background-image: url('VantaBD_Coverart_smile_final.png');
-    background-size: cover;
-    background-position: center;
-    font-family: 'Georgia', serif;
-    color: #000000;
-}
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-attachment: fixed;
+            background-image: url('VantaBD_Coverart_smile_final.png');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Georgia', serif;
+            color: #000000;
+        }
 
-.main {
-    gap: 20px;
-    padding: 20px;
-}
-      
-body.modal-open {
-    overflow: hidden;
-}
-.close {
-    position: absolute;
-    top: 10px;
-    right: 30px; 
-    cursor: pointer;
-    color: #6b47c6;
-    z-index: 800; 
-    width: 20%
-}
+        .main {
+            gap: 20px;
+            padding: 20px;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            cursor: pointer;
+            color: #6b47c6;
+            z-index: 800;
+            width: 20%
+        }
 
         #video-container {
             width: 100%;
@@ -46,24 +47,26 @@ body.modal-open {
             margin: auto;
             position: relative;
         }
-#video-container .prev2,
-#video-container .next2 {
-    width: 30px; 
-}
 
-#video-container .prev2 {
-    left: -40px; 
-}
+        #video-container .prev2,
+        #video-container .next2 {
+            width: 30px;
+        }
 
-#video-container .next2 {
-    right: -40px; 
-}
+        #video-container .prev2 {
+            left: -40px;
+        }
 
-#video-container .prev2:hover,
-#video-container .next2:hover {
-    background-color: #6b47c6;
-    color: #fff;
-}
+        #video-container .next2 {
+            right: -40px;
+        }
+
+        #video-container .prev2:hover,
+        #video-container .next2:hover {
+            background-color: #6b47c6;
+            color: #fff;
+        }
+
         .video-slide {
             height: 80%;
         }
@@ -76,132 +79,139 @@ body.modal-open {
             display: block;
         }
 
-        .timeline {
+        ..timeline {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px; 
+  background-color: #6b47c6; 
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 2;
+  color: #000000; 
+  font-family: Arial, sans-serif; 
+}
+
+timeline {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px; /* Adjust as needed */
+  background-color: #6b47c6; /* Purple color */
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 2;
+  color: #000000; 
+  font-family: Georgia, sans-serif;
+}
+
+.timeline-item {
+  display: none;
+  position: absolute;
+  bottom: 85px; 
+  left: 375px;
+  text-align: center;
+  transform: translateX(-50%);
+  font-size: 18px; 
+}
+
+.timeline-item.active {
+  display: block;
+}
+
+.timeline-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background-color: #6b47c6; 
+  transition: width 0.3s ease-in-out;
+}
+
+.timeline-date-container {
+  display: inline-block;
+  background-color: #6b47c6; /* Purple color */
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.myVideoSlide {
+  display: none;
+}
+
+.myVideoSlide:first-child {
+  display: block;
+}
+
+        .my2Slide {
+            text-align: center;
             display: flex;
-            justify-content: space-around;
-            margin-top: 10px;
-            flex-wrap: wrap;
-            position: absolute;
-            top: 80%;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 1;
-            pointer-events: none;
-            transition: opacity 0.5s ease-in-out;
-            z-index: 2;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin: 0;
         }
 
-        .timeline.active {
-            opacity: 1;
-            pointer-events: auto;
+        .my2Slide img {
+            max-width: 55%;
+            max-height: 1100px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
-        .timeline-item {
-            font-size: 14px;
-            padding: 5px;
-            background-color: #6b47c6;
-            color: #fff;
-            border-radius: 5px;
-            margin: 5px;
-            opacity: 0.7;
-            cursor: pointer;
-            animation: fadeOut 0.5s forwards;
-        }
-
-        .timeline-item.active {
-            opacity: 1;
-            font-weight: bold;
-        }
-
-        .timeline-progress {
-            height: 5px;
-            background-color: #6b47c6;
-            position: absolute;
+        .slideshow-containerC {
+            position: fixed;
+            top: 0;
             bottom: 0;
             left: 0;
-            width: 0;
-            transition: width 100000s ease-in-out;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            overflow: hidden;
         }
 
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-            }
-
-            to {
-                opacity: 0;p
-            }
+        .prev2,
+        .next2 {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            font-size: 16px;
+            color: #6b47c6;
+            background-color: #fff;
+            border: 2px solid #6b47c6;
+            border-radius: 10px;
+            padding: 5px;
+            width: 30px;
+            text-align: center;
+            z-index: 999;
         }
-.my2Slide {
-    text-align: center;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin: 0;
-}
 
-.my2Slide img {
-    max-width: 55%;
-    max-height: 1100px;
-    width: auto;
-    height: auto;
-    object-fit: contain; 
-}
+        .prev2,
+        .next2 {
+            width: 30px;
+        }
 
-.slideshow-containerC {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    overflow: hidden;
-}
+        .prev2 {
+            left: 275px;
+        }
 
-   .prev2,
-    .next2 {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        font-size: 16px;
-        color: #6b47c6;
-        background-color: #fff;
-        border: 2px solid #6b47c6;
-        border-radius: 10px;
-        padding: 5px;
-        width: 30px;
-        text-align: center;
-        z-index: 999;
-    }
+        .next2 {
+            right: 275px;
+        }
 
-    .prev2,
-    .next2 {
-        width: 30px;
-    }
+        .prev2:hover,
+        .next2:hover {
+            background-color: #6b47c6;
+            color: #fff;
+        }
 
-    .prev2 {
-        left: 275px; 
-    }
-
-    .next2 {
-        right: 275px; 
-    }
-
-    .prev2:hover,
-    .next2:hover {
-        background-color: #6b47c6;
-        color: #fff;
-    }
-
-    .prev2,
-    .next2 {
-        text-align: center;
-    }
-
+        .prev2,
+        .next2 {
+            text-align: center;
+        }
 
         @keyframes fadeIn {
             0% {
@@ -582,74 +592,49 @@ function getCurrentCreditSlide() {
         let currentVideoSlide = 1;
 
         function showVideoSlide(slideIndex) {
-            const videoSlides = document.querySelectorAll('.myVideoSlide');
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            const timelineProgress = document.querySelector('.timeline-progress');
+    const videoSlides = document.querySelectorAll('.myVideoSlide');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    const timelineProgress = document.querySelector('.timeline-progress');
 
-            for (let i = 0; i < videoSlides.length; i++) {
-                videoSlides[i].style.display = 'none';
-            }
+    for (let i = 0; i < videoSlides.length; i++) {
+        videoSlides[i].style.display = 'none';
+    }
 
-            for (let i = 0; i < timelineItems.length; i++) {
-                timelineItems[i].classList.remove('active');
-                timelineItems[i].style.animation = 'none';
-            }
-            videoSlides[slideIndex - 1].style.display = 'block';
-            timelineItems[slideIndex - 1].classList.add('active');
+    for (let i = 0; i < timelineItems.length; i++) {
+        timelineItems[i].classList.remove('active');
+    }
 
-            for (let i = 0; i < timelineItems.length; i++) {
-                if (i !== slideIndex - 1) {
-                    timelineItems[i].style.animation = 'fadeOut 0.5s forwards';
-                }
-            }
+    videoSlides[slideIndex - 1].style.display = 'block';
+    timelineItems[slideIndex - 1].classList.add('active');
 
-            function toggleTimeline() {
-                const timeline = document.querySelector('.timeline');
-                isTimelineVisible = !isTimelineVisible;
+    const timelineItemWidth = timelineItems[0].offsetWidth + 10;
+    const progressWidth = timelineItemWidth * slideIndex;
+    timelineProgress.style.width = `${progressWidth}px`;
 
-                if (isTimelineVisible) {
-                    timeline.classList.add('active');
-                } else {
-                    timeline.classList.remove('active');
-                }
-            }
-
-            const timelineItemWidth = timelineItems[0].offsetWidth + 10;
-            const progressWidth = timelineItemWidth * slideIndex;
-            timelineProgress.style.width = `${progressWidth}px`;
+    // Show only the corresponding date for the current slide
+    for (let i = 0; i < timelineItems.length; i++) {
+        if (i === slideIndex - 1) {
+            timelineItems[i].style.display = 'block';
+        } else {
+            timelineItems[i].style.display = 'none';
         }
+    }
+}
 
-        function clickTimelineItem(index) {
-            const videoSlides = document.querySelectorAll('.myVideoSlide');
-            let nextSlide = (index + 1) % videoSlides.length + 1;
+function plusVideoSlides(n) {
+    const videoSlides = document.querySelectorAll('.myVideoSlide');
+    let currentVideoSlide = 0;
 
-            showVideoSlide(nextSlide);
+    for (let i = 0; i < videoSlides.length; i++) {
+        if (videoSlides[i].style.display === 'block') {
+            currentVideoSlide = i + 1;
+            break;
         }
+    }
 
-        function plusVideoSlides(n) {
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            const videoSlides = document.querySelectorAll('.myVideoSlide');
-            const timelineSlideMapping = Array.from(timelineItems).map((item, index) => index + 1);
-
-            let currentVideoSlide = 1;
-
-            for (let i = 0; i < videoSlides.length; i++) {
-                if (videoSlides[i].style.display === 'block') {
-                    currentVideoSlide = i + 1;
-                    break;
-                }
-            }
-
-            const totalSlides = videoSlides.length;
-            let nextSlide = (currentVideoSlide + n - 1 + totalSlides) % totalSlides + 1;
-
-            for (let i = 0; i < timelineItems.length; i++) {
-                timelineItems[i].classList.remove('active');
-                timelineItems[i].style.animation = 'none';
-            }
-
-            showVideoSlide(nextSlide);
-        }
+    let nextSlide = (currentVideoSlide + n - 1 + videoSlides.length) % videoSlides.length + 1;
+    showVideoSlide(nextSlide);
+}
 
         function getModalContent(moduleId) {
             switch (moduleId) {
