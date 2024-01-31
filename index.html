@@ -79,40 +79,22 @@
             display: block;
         }
 
-        ..timeline {
+.timeline {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 20px; 
-  background-color: #6b47c6; 
-  padding: 10px;
-  border-radius: 10px;
+  bottom: 20px;
   z-index: 2;
-  color: #000000; 
-  font-family: Arial, sans-serif; 
-}
-
-timeline {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 20px; /* Adjust as needed */
-  background-color: #6b47c6; /* Purple color */
-  padding: 10px;
-  border-radius: 10px;
-  z-index: 2;
-  color: #000000; 
-  font-family: Georgia, sans-serif;
 }
 
 .timeline-item {
+  position: relative;
   display: none;
-  position: absolute;
-  bottom: 85px; 
-  left: 375px;
   text-align: center;
   transform: translateX(-50%);
-  font-size: 18px; 
+  font-size: 18px;
+border-radius: 120%; 
+ border: 2px solid #6a0dad; 
 }
 
 .timeline-item.active {
@@ -124,15 +106,17 @@ timeline {
   bottom: 0;
   left: 0;
   height: 3px;
-  background-color: #6b47c6; 
+  background-color: #6a0dad;
   transition: width 0.3s ease-in-out;
 }
 
 .timeline-date-container {
   display: inline-block;
-  background-color: #6b47c6; /* Purple color */
+  background-color: #ffffff;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 80%; 
+  color: #000000;
+  border: 2px solid #6a0dad; 
 }
 
 .myVideoSlide {
@@ -142,6 +126,7 @@ timeline {
 .myVideoSlide:first-child {
   display: block;
 }
+
 
         .my2Slide {
             text-align: center;
