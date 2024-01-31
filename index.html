@@ -495,7 +495,7 @@ function getCurrentComicSlide() {
          let currentCreditSlide = 1;
 
         function showCreditSlide(slideIndex) {
-    const comicSlides = document.querySelectorAll('.my3Slide');
+    const comicSlides = document.querySelectorAll('.my2Slide');
 
     if (slideIndex > creditSlides.length) {
         currentCreditSlide = 1;
@@ -515,7 +515,7 @@ function getCurrentComicSlide() {
     }
 
         function getCurrentCreditSlide() {
-            const creditSlides = document.querySelectorAll('.my3Slide');
+            const creditSlides = document.querySelectorAll('.my2Slide');
             let currentCreditSlide = 1;
 
             for (let i = 0; i < creditSlides.length; i++) {
@@ -532,7 +532,7 @@ function getCurrentComicSlide() {
         function connectCreditModalToCSS() {
             const modalContent = document.querySelector('.modal-content');
             modalContent.innerHTML = generateCreditsModalContent();
-            const creditSlides = document.querySelectorAll('.my3Slide');
+            const creditSlides = document.querySelectorAll('.my2Slide');
             creditSlides.forEach((slide, index) => {
                 slide.style.zIndex = index + 1;
             });
@@ -544,7 +544,7 @@ function plusCreditSlides(n) {
 }
 
 function getCurrentCreditSlide() {
-    const creditSlides = document.querySelectorAll('.my3Slide');
+    const creditSlides = document.querySelectorAll('.my2Slide');
     let currentCreditSlide = 1;
 
     for (let i = 0; i < creditSlides.length; i++) {
