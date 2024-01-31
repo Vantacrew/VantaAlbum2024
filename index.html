@@ -148,23 +148,6 @@ border-radius: 120%;
             height: auto;
             object-fit: contain;
         }
-        
-        .my4Slide {
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin: 0;
-        }
-
-        .my4Slide img {
-            max-width: 55%;
-            max-height: 1100px;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-        }
 
         .slideshow-containerC {
             position: fixed;
@@ -512,7 +495,7 @@ function getCurrentComicSlide() {
          let currentCreditSlide = 1;
 
         function showCreditSlide(slideIndex) {
-    const comicSlides = document.querySelectorAll('.my4Slide');
+    const comicSlides = document.querySelectorAll('.my3Slide');
 
     if (slideIndex > creditSlides.length) {
         currentCreditSlide = 1;
@@ -532,7 +515,7 @@ function getCurrentComicSlide() {
     }
 
         function getCurrentCreditSlide() {
-            const creditSlides = document.querySelectorAll('.my4Slide');
+            const creditSlides = document.querySelectorAll('.my3Slide');
             let currentCreditSlide = 1;
 
             for (let i = 0; i < creditSlides.length; i++) {
@@ -549,7 +532,7 @@ function getCurrentComicSlide() {
         function connectCreditModalToCSS() {
             const modalContent = document.querySelector('.modal-content');
             modalContent.innerHTML = generateCreditsModalContent();
-            const creditSlides = document.querySelectorAll('.my4Slide');
+            const creditSlides = document.querySelectorAll('.my3Slide');
             creditSlides.forEach((slide, index) => {
                 slide.style.zIndex = index + 1;
             });
@@ -561,7 +544,7 @@ function plusCreditSlides(n) {
 }
 
 function getCurrentCreditSlide() {
-    const creditSlides = document.querySelectorAll('.my4Slide');
+    const creditSlides = document.querySelectorAll('.my3Slide');
     let currentCreditSlide = 1;
 
     for (let i = 0; i < creditSlides.length; i++) {
