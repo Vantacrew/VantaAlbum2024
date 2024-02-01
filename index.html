@@ -32,30 +32,37 @@
     z-index: -1; 
 }
 
-.main {
-    position: relative; 
-}
   .btn-grid {
+    .btn-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh; 
+    height: 100vh; 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    grid-auto-rows: 100vh; 
     gap: 20px;
     padding: 20px;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    z-index: 1; 
+    align-content: center; 
+    justify-content: center; 
+}
 }
 
 .btn-grid img {
-    max-width: 50%; 
+    max-width: 20%; /
+    max-height: 20%; /
+    display: block; 
+     z-index: 1;
 }
+
 .btn-intro {
     position: absolute;
-    top: 400%;
+    top: 1200%;
     left: 10%;
-    max-width: 20%;
-    max-height: 20%;
-    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .btn-comic {
@@ -85,6 +92,7 @@
       .main {
             gap: 20px;
             padding: 20px;
+            position: relative;
         }
 
         body.modal-open {
@@ -376,7 +384,7 @@ border-radius: 120%;
     position: fixed; 
     top: 0;
     left: 0;
-    z-index: 1; 
+    z-index: 2; 
 }
 .intro-text-container {
      color: #000000;
