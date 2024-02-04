@@ -105,6 +105,7 @@ element.style {
 .cursor
   background-color: #1D1E22;
   cursor: none;
+  cursor: url('vantacursor.png'), auto;
 }
 
 .rounded{
