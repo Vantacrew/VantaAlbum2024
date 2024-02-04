@@ -103,14 +103,13 @@ element.style {
 }
   
 .cursor
-  background-color: #1D1E22;
   cursor: none;
   cursor: url('vantacursor.png'), auto;
 }
 
 .rounded{
-  width: 30px;
-  height: 30px;
+  width: 48px;
+  height: 48px;
   border: 2px solid #fff;
   border-radius: 50%;
 }
