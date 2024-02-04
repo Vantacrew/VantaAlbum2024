@@ -26,7 +26,6 @@
             background-position: center;
             font-family: 'Georgia', serif;
             color: #000000;
-            cursor: url('vantacursor.png'),auto;
         }
 .background {
     position: fixed;
@@ -454,11 +453,21 @@ border-radius: 120%;
             height: 100vh; 
             margin-bottom: 20px; 
         }
+        .custom-cursor {
+     position: fixed;
+    width: 32px; 
+    height: 32px;
+    background-image: url('vantacursor.png'); 
+    background-size: cover;
+    pointer-events: none; 
+    z-index: 9999; 
+}
     </style>
 </head>
 
 <body>
     <!-- Splash Screen -->
+    <div class="custom-cursor"></div>
     <div class="splash" id="splash" onclick="hideSplash()">
     <img src="VantaBD_Coverart_smile_closeeyes_final.png" alt="Splash Image" class="comic-style1">
 </div>
@@ -488,6 +497,11 @@ border-radius: 120%;
         </div>
 
     <script>
+   document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.custom-cursor');
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+});
         function hideSplash() {
             const splash = document.getElementById('splash');
             splash.classList.add('hidden'); 
