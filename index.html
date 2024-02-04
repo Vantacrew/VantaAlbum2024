@@ -423,19 +423,27 @@ border-radius: 120%;
 .album-modal-content {
             overflow-y: auto; 
             max-height: 80vh; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
         }
-        .credit-modal-content {
-            overflow-y: auto; /
+.credit-modal-content {
+            overflow-y: auto; 
             max-height: 80vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
         }
 
         .album-image {
             max-width: 100%; 
             height: auto; 
+            margin-bottom: 20px; 
         }
         .credit-image {
             max-width: 100%; 
             height: auto; 
+            margin-bottom: 20px; 
         }
     </style>
 </head>
@@ -772,7 +780,6 @@ function plusVideoSlides(n) {
                 <div id="AlbumsModal" class="modal">
                     <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
                     <div class="modal-content">
-                        <h2>Album</h2>
                         <div class="slideshow-containerD">
                             <div class="my3Slide fade"><img src="1 Scrapbook front page.png" alt="Album 1" style="width: 80%;"></div>
                             <div class="my3Slide fade"><img src="2.png" alt="Album 2" style="width: 100%;"></div>
