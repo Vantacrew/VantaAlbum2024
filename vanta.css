@@ -105,6 +105,7 @@ element.style {
 .cursor
   cursor: none;
   cursor: url('vantacursor.png'), auto;
+  cursor: url('/path/to/vantacursor.png'), auto;
 }
 
 .rounded{
