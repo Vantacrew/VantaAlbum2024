@@ -420,6 +420,23 @@ border-radius: 120%;
     transform: translateX(-50%);
     z-index: 50;
 }  
+.album-modal-content {
+            overflow-y: auto; 
+            max-height: 80vh; 
+        }
+        .credit-modal-content {
+            overflow-y: auto; /
+            max-height: 80vh; 
+        }
+
+        .album-image {
+            max-width: 100%; 
+            height: auto; 
+        }
+        .credit-image {
+            max-width: 100%; 
+            height: auto; 
+        }
     </style>
 </head>
 
@@ -760,9 +777,7 @@ function plusVideoSlides(n) {
                             <div class="my3Slide fade"><img src="1 Scrapbook front page.png" alt="Album 1" style="width: 80%;"></div>
                             <div class="my3Slide fade"><img src="2.png" alt="Album 2" style="width: 100%;"></div>
                         </div>
-                        <div style="text-align:center"></div>
-                       <a class="prev2" onclick="plus3Slides(-1)">❮</a> <a class="next2" onclick="plus3Slides(1)">❯</a>
-                    </div>
+                    
                 </div>`;
                 case 'video-container':
                     return `
@@ -905,12 +920,7 @@ function plusVideoSlides(n) {
                     <div class="my2Slide fade"><img src="LEADER POLAROID FINAL (1).png" alt="Credit 4" class="credit-image">
                     </div>
                     <!-- Add more credit images as needed -->
-                     <div>
-                    <div style="text-align:center">
-                 <a class="prev2" onclick="plusCreditSlides(-1)">❮</a>
-                 <a class="next2" onclick="plusCreditSlides(1)">❯</a>
-                 </div>
-                        
+                  
                     </div>
                 </div>`;
                      default:
