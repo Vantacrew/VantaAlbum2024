@@ -775,16 +775,18 @@ function plusVideoSlides(n) {
 </div>
         </div>
     </div>`;
-                case 'AlbumsModal':
-                    return `
+             case 'AlbumsModal':
+            return `
                 <div id="AlbumsModal" class="modal">
                     <div class="modal-container" onclick="toggleModule('AlbumsModal')"></div>
                     <div class="modal-content">
-                        <div class="slideshow-containerD">
-                            <div class="my3Slide fade"><img src="1 Scrapbook front page.png" alt="Album 1" style="width: 80%;"></div>
-                            <div class="my3Slide fade"><img src="2.png" alt="Album 2" style="width: 100%;"></div>
+                        <div class="album-modal-content">
+                            <!-- Add your album images here -->
+                            <img src="album_image1.jpg" alt="Album Image 1" class="album-image">
+                            <img src="album_image2.jpg" alt="Album Image 2" class="album-image">
+                            <!-- Add more album images as needed -->
                         </div>
-                    
+                    </div>
                 </div>`;
                 case 'video-container':
                     return `
