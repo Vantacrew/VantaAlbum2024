@@ -101,7 +101,8 @@ element.style {
 .mySlides {
    text-align: center;
 }
-body{
+  
+.cursor
   background-color: #1D1E22;
   cursor: none;
 }
@@ -119,5 +120,3 @@ body{
   background-color: white;
   border-radius: 50%;
 }
-cursor: url('vantacursor.png'), auto;
-  }
