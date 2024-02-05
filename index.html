@@ -496,18 +496,11 @@ border-radius: 120%;
         </div>
 
     <script>
-   document.addEventListener('DOMContentLoaded', function () {
-        const cursor = document.createElement('div');
-        cursor.className = 'custom-cursor';
-        document.body.appendChild(cursor);
-
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
-        });
-
-        document.body.style.cursor = 'none';
-    });
+   document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.custom-cursor');
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 'px';
+});
         function hideSplash() {
             const splash = document.getElementById('splash');
             splash.classList.add('hidden'); 
