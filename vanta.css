@@ -104,3 +104,6 @@ element.style {
 video{
    object-fit: inherit;
 }
+html {
+  cursor: url('vantacursor.png'), default;
+}
