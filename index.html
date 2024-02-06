@@ -452,6 +452,18 @@ border-radius: 120%;
             margin-bottom: 20px; 
             align-items: center; 
         }
+       .custom-cursor {
+     position: fixed;
+    width: 80px; 
+    height: 80px;
+    background-image: url('vantacursor.png'); 
+    cursor: url('vantacursor.png'),auto;
+    cursor: none;
+    background-size: cover;
+    pointer-events: none; 
+    z-index: 9999; 
+}
+
     </style>
 </head>
 
@@ -1005,8 +1017,3 @@ function plusVideoSlides(n) {
 
 </html>
 <img src="VantaBD_Coverart_smile_final.png" class="comic-style1">       
-<style>
-       html {
-          cursor: url('vantacursor.png'),auto;
-       }
-</style>
